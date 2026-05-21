@@ -29,13 +29,13 @@ export default function Story() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://www.silenth.ca"
+                "item": "https://www.silenthnyc.com"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Our Story",
-                "item": "https://www.silenth.ca/story"
+                "item": "https://www.silenthnyc.com/story"
             }
         ]
     };
@@ -45,8 +45,8 @@ export default function Story() {
         <>
             <SEO
             title="Silent H Stories | Our Story"
-            description="Learn the story behind Silent H, a modern Mexican restaurant in Toronto."
-            url="https://www.silenth.ca/story"
+            description="Learn the story behind Silent H, a modern Mexican restaurant in NYC."
+            url="https://www.silenthnyc.com/story"
             jsonLd={breadcrumbSchema}
         />
         <main className="font-['Mondwest'] home">

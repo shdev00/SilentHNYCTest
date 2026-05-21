@@ -17,13 +17,13 @@ export default function Events() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://www.silenth.ca"
+                "item": "https://www.silenthnyc.com"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Events",
-                "item": "https://www.silenth.ca/events"
+                "item": "https://www.silenthnyc.com/events"
             }
         ]
     };
@@ -39,13 +39,14 @@ export default function Events() {
             "eventStatus": "https://schema.org/EventScheduled",
             "location": {
                 "@type": "Place",
-                "name": "Silent H Toronto",
+                "name": "Silent H NYC",
                 "address": {
                     "@type": "PostalAddress",
-                    "streetAddress": "461 King St W",
-                    "addressLocality": "Toronto",
-                    "addressRegion": "ON",
-                    "addressCountry": "CA"
+                    "streetAddress": "416 West 13th St",
+                    "addressLocality": "New York City",
+                    "addressRegion": "NY",
+                    "postalCode": "10014",
+                    "addressCountry": "USA"
                 }
             },
             "description": "House wine bottles $20 every Wednesday.",
@@ -66,13 +67,14 @@ export default function Events() {
             "eventStatus": "https://schema.org/EventScheduled",
             "location": {
                 "@type": "Place",
-                "name": "Silent H Toronto",
+                "name": "Silent H NYC",
                 "address": {
                     "@type": "PostalAddress",
-                    "streetAddress": "461 King St W",
-                    "addressLocality": "Toronto",
-                    "addressRegion": "ON",
-                    "addressCountry": "CA"
+                    "streetAddress": "416 West 13th St",
+                    "addressLocality": "New York City",
+                    "addressRegion": "NY",
+                    "postalCode": "10014",
+                    "addressCountry": "USA"
                 }
             },
             "description": "Espresso martinis $10 every Thursday.",
@@ -88,9 +90,9 @@ export default function Events() {
     return (
         <>
             <SEO
-            title="Silent H Toronto | Modern Mexican Cuisine Events"
-            description="Host private events and dining experiences at Silent H in Toronto."
-            url="https://www.silenth.ca/events"
+            title="Silent H NYC | Modern Mexican Cuisine Events"
+            description="Host private events and dining experiences at Silent H in NYC."
+            url="https://www.silenthnyc.com/events"
             jsonLd={[breadcrumbSchema, ...eventSchema]}
         />
         <main className="events font-['Mondwest']">

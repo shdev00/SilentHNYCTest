@@ -15,17 +15,17 @@ export default function Home() {
         "@context": "https://schema.org",
         "@type": "Restaurant",
         "name": "Silent H",
-        "url": "https://www.silenth.ca",
+        "url": "https://www.silenthnyc.com/",
         "telephone": "+14169003535",
         "servesCuisine": "Mexican",
         "priceRange": "$$$",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "461 King St W",
-            "addressLocality": "Toronto",
-            "addressRegion": "ON",
-            "postalCode": "M5V 1K4",
-            "addressCountry": "CA"
+            "streetAddress": "416 West 13th St",
+            "addressLocality": "New York City",
+            "addressRegion": "NY",
+            "postalCode": "10014",
+            "addressCountry": "USA"
         },
         "openingHoursSpecification": [
             {
@@ -47,7 +47,7 @@ export default function Home() {
             "https://www.tiktok.com/@silenth.to",
             "https://www.facebook.com/silenth.tor/"
         ],
-        "menu": "https://www.silenth.ca/menu",
+        "menu": "https://www.silenthnyc.com/menu",
         "hasMap": "https://www.google.com/maps?q=Silent+H+Toronto",
         "aggregateRating": {
             "@type": "AggregateRating",
@@ -88,9 +88,9 @@ export default function Home() {
     return (
         <>
             <SEO
-                title="Silent H Toronto | Modern Mexican Cuisine"
-                description="Authentic yet modern Mexican dining in the heart of Toronto."
-                url="https://www.silenth.ca/"
+                title="Silent H NYC | Modern Mexican Cuisine"
+                description="Authentic yet modern Mexican dining in the heart of NYC."
+                url="https://www.silenthnyc.com/"
                 jsonLd={jsonLd}
             />
             <main className="font-['Mondwest'] home">
@@ -124,10 +124,10 @@ export default function Home() {
 
                             {/* Heading */}
                             <h1 className="text-5xl md:text-[4rem] font-['Mondwest'] leading-[100%] tracking-[4.48px] max-w-[90%] mt-5">
-                                Mexican flavours, celebrated in Toronto
+                                Mexican flavours, celebrated in NYC
                             </h1>
                             {/*<p className="font-['NeueBit'] text-xl py-5 max-w-[556px] ">
-                                Upscale Mexican dining in Toronto, where bold flavours meet a vibrant atmosphere. Guided
+                                Upscale Mexican dining in NYC, where bold flavours meet a vibrant atmosphere. Guided
                                 by Chef Gerardo, every dish honours authentic Mexican tradition.
                             </p>*/}
                             <button
@@ -147,7 +147,7 @@ export default function Home() {
                         className="hidden md:flex absolute inset-0 z-10 flex flex-col items-start justify-center px-20 xl:px-0 2xl:px-20 text-white">
                         <div className="max-w-screen md:scale-[0.9] md:2xl:scale-[1]">
                             <h1 className="text-5xl md:text-[4rem] font-['Mondwest'] leading-[100%] tracking-[4.48px] max-w-[60%] pt-[129px]">
-                                Mexican flavours, celebrated in Toronto
+                                Mexican flavours, celebrated in NYC
                             </h1>
                             {/*<p className="font-['NeueBit'] text-xl py-5 w-[556px] ">
                             Upscale Mexican dining in Toronto, where bold flavours meet a vibrant atmosphere. Guided by Chef Gerardo, every dish honours authentic Mexican tradition.
@@ -327,7 +327,7 @@ export default function Home() {
                                       "
                             >
                                 Traditional Mexican cuisine <span className="hidden md:inline"><br/></span>
-                                in Toronto, respectfully crafted. <span className="hidden md:inline"><br/></span>
+                                in NYC, respectfully crafted. <span className="hidden md:inline"><br/></span>
                                 Colourful locale. <span className="hidden md:inline"><br/></span>
 
                             </h2>
@@ -349,7 +349,7 @@ export default function Home() {
                                 Our ambiance pulses with vibrant energy and a tasteful blend of
                                 traditional and modern style, where magnetic personalities gather
                                 in spaces as striking as they are inviting. Guided by Chef Gerardo,
-                                our menu brings the bold flavours of Mexico’s streets to Toronto,
+                                our menu brings the bold flavours of Mexico’s streets to NYC,
                                 elevating each bite while honouring authentic taste and inviting
                                 you to return time and time again.
                             </p>
@@ -375,7 +375,7 @@ export default function Home() {
                         className="h2outer relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-[167px] pb-[167px]">
                         <h2 className="font-bold text-white tracking-[0.16em]
                  text-[clamp(1.5rem,4vw,1.75rem)] 2xl:text-[clamp(1.8rem,4.8vw,2.1rem)]">
-                            Private Dining &amp; Events in Toronto
+                            Private Dining &amp; Events in NYC
                         </h2>
 
                         <p className="font-['NeueBit'] mt-6 max-w-6xl text-gray-200 tracking-[0.16em] ml-10 md:ml-0
@@ -607,7 +607,7 @@ export default function Home() {
                         {/* Happy Hour Header */}
                         <div className="flex flex-col gap-[24px] items-center justify-center text-center mb-[40px]">
                             <h2 className="font-['Mondwest'] font-bold text-[#0b0b0b] text-[32px] md:text-[40px] tracking-[2.8px] leading-none">
-                                Best Happy Hour In Toronto
+                                Best Happy Hour In NYC
                             </h2>
                             <p className="font-['Mondwest'] font-bold text-[#0b0b0b] text-[24px] md:text-[28px] tracking-[1.96px] leading-[1.2]">
                                 Everyday - 5pm - 7pm
@@ -783,7 +783,7 @@ export default function Home() {
                                       active:bg-black active:text-[#EB4660]
                                         "
                             >
-                                RESERVE YOUR TABLE AT SILENT H TORONTO
+                                RESERVE YOUR TABLE AT SILENT H NYC
                             </button>
                         </div>
                     </div>

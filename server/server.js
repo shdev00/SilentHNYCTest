@@ -15,8 +15,8 @@ app.use(
             "https://silenth-test.netlify.app",
             "https://silenth.pages.dev",
             "https://silenthdeploy.pages.dev",
-            "https://www.silenth.ca",
-            "https://silenth.ca"
+            "https://www.silenthnyc.com",
+            "https://silenthnyc.com"
         ],
         methods: ["GET", "POST", "OPTIONS"],
         allowedHeaders: ["Content-Type"],

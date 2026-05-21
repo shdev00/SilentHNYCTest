@@ -53,13 +53,13 @@ export default function Menu() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://www.silenth.ca"
+                "item": "https://www.silenthnyc.com"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Menu",
-                "item": "https://www.silenth.ca/menu"
+                "item": "https://www.silenthnyc.com/menu"
             }
         ]
     };
@@ -67,9 +67,9 @@ export default function Menu() {
     return (
         <>
         <SEO
-            title="Silent H Toronto Menu | Modern Mexican Cuisine (Menu)"
-            description="Explore the food and drink menu at Silent H in Toronto."
-            url="https://www.silenth.ca/menu"
+            title="Silent H NYC Menu | Modern Mexican Cuisine (Menu)"
+            description="Explore the food and drink menu at Silent H in NYC."
+            url="https://www.silenthnyc.com/menu"
             jsonLd={breadcrumbSchema}
         />
             <main className="menu font-['NeueBit']">
@@ -152,7 +152,7 @@ export default function Menu() {
                         <h1
                             className="font-['Mondwest'] text-[clamp(1.75rem,3vw,2.5rem)] tracking-[clamp(0.04em,0.3vw,0.055em)] leading-[1] font-bold pointer-events-none"
                         >
-                            Authentic Mexican Cuisine & Elevated Cocktails in Toronto
+                            Authentic Mexican Cuisine & Elevated Cocktails in NYC
                         </h1>
 
                         <p
