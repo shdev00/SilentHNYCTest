@@ -90,7 +90,7 @@ export default function Footer() {
                                 rel="noopener noreferrer"
                                 className="hover:opacity-70"
                             >
-                                461 KING ST. W
+                                416 WEST 13<sup>TH</sup> ST
                             </a>
                         </p>
                         <p className="mt-2 font-bold">
