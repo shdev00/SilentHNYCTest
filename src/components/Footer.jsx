@@ -129,7 +129,7 @@ export default function Footer() {
                 {/* Embed */}
                 <div className="my-10 md:my-0 flex ml-5 justify-center md:justify-start">
                     <iframe
-                        src="https://www.google.com/maps?q=Silent+H+Toronto&output=embed"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.983663018078!2d-74.0070118!3d40.740384999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259c07202b201%3A0x48609b1a189f6c60!2s416%20W%2013th%20St%2C%20New%20York%2C%20NY%2010014%2C%20USA!5e0!3m2!1sen!2sca!4v1779391139732!5m2!1sen!2sca&output=embed"
                         width="100%"
                         height="200"
                         style={{border: 0}}
