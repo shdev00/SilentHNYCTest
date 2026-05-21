@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
-import { useOTWidget } from "./OTwidget";
+{/*import { useOTWidget } from "./OTwidget";*/}
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const { setShowWidget } = useOTWidget();
+    {/*const { setShowWidget } = useOTWidget();*/}
+
+    const [showReservationModal, setShowReservationModal] = useState(false);
+
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -29,11 +32,11 @@ export default function Navbar() {
     const links = [
         { to: "/menu", label: "Menu" },
         { to: "/reservations", label: "Reservations" },
-        { to: "/events", label: "Plan an Event" },
+        //{ to: "/events", label: "Plan an Event" },
         { to: "/story", label: "Our Story" },
         { label: "Happy Hour", scrollId: "happy-hour" },
 
-        { to: "/aitch", label: "Enter Aitch", external: true },
+        //{ to: "/aitch", label: "Enter Aitch", external: true },
         //removed, remove comment to manifest in navbar aga in
         //{ to: "/aitch", label: "Enter Aitch" },
     ];
@@ -70,7 +73,7 @@ export default function Navbar() {
                 </NavLink>
 
                 {/* Desktop Nav change href=/aitch if it shows index.html suffix*/}
-                <ul className="hidden md:flex md:flex-nowrap whitespace-nowrap md:pl-10 lg:pl-15 md:gap-26 lg:gap-25 2xl:gap-35 2xl:ml-32 text-[20px] md:text-sm lg:text-[20px] 2xl:text-[1.4em] font-bold uppercase tracking-[0.224em]">
+                <ul className="hidden md:flex md:flex-nowrap whitespace-nowrap md:pl-10 lg:pl-15 md:gap-26 lg:gap-45 2xl:gap-35 2xl:ml-32 text-[20px] md:text-sm lg:text-[20px] 2xl:text-[1.4em] font-bold uppercase tracking-[0.224em]">
                     {links.map(({ to, label, external, scrollId }, idx) => (
                         <li key={label}>
                             {scrollId ? (
@@ -117,23 +120,24 @@ export default function Navbar() {
                                 </a>
 
                             ) : label === "Reservations" ? (
-                                <NavLink
-                                    onClick={() => setShowWidget(true)}
-                                    className={`relative inline-flex justify-center items-center py-2 
-                ${idx === 0 ? "font-['NeueBit'] w-[225%] after:w-[100%]" : "w-[140%] after:w-[100%]"}
-                after:content-[''] after:absolute after:left-1/2 after:translate-x-[-50%] 
-                after:bottom-0 after:h-[1px]
-                after:bg-black after:opacity-0 after:transition-opacity after:duration-500 after:ease-in-out
-                hover:after:opacity-100
-                text-black`}
+                                <button
+                                    type="button"
+                                    onClick={() => setShowReservationModal(true)}
+                                    className={`uppercase relative inline-flex justify-center items-center py-2 
+        ${idx === 0 ? "font-['NeueBit'] w-[225%] after:w-[100%]" : "w-[140%] after:w-[100%]"}
+        after:content-[''] after:absolute after:left-1/2 after:translate-x-[-50%] 
+        after:bottom-0 after:h-[1px]
+        after:bg-black after:opacity-0 after:transition-opacity after:duration-500 after:ease-in-out
+        hover:after:opacity-100
+        text-black`}
                                 >
                                     {label}
-                                </NavLink>
+                                </button>
 
                             ) : (
                                 <NavLink
                                     to={to}
-                                    className={({ isActive }) =>
+                                    className={({isActive}) =>
                                         `relative inline-flex justify-center items-center py-2
                     ${idx === 0 ? "font-['NeueBit'] w-[225%] after:w-[100%]" : "w-[140%] after:w-[100%]"}
                     after:content-[''] after:absolute after:left-1/2 after:translate-x-[-50%]
@@ -187,7 +191,7 @@ export default function Navbar() {
                                 key={label}
                                 onClick={() => {
                                     setIsOpen(false);
-                                    setShowWidget(true);
+                                    setShowReservationModal(true);
                                 }}
                                 className="text-[18px] uppercase tracking-[3.6px] text-center text-black font-bold hover:text-white transition"
                             >
@@ -264,6 +268,49 @@ export default function Navbar() {
                     </div>
                 </div>
             )}
+            {showReservationModal && (
+                <div
+                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 px-6"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="reservation-coming-soon-title"
+                    onClick={() => setShowReservationModal(false)}
+                >
+                    <div
+                        className="relative w-full max-w-md bg-[#ECE1D4] text-black border border-black px-8 py-10 text-center shadow-2xl"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button
+                            type="button"
+                            onClick={() => setShowReservationModal(false)}
+                            className="absolute right-4 top-3 font-['NeueBit'] text-[28px] leading-none text-black hover:text-[#EB4660] transition-colors"
+                            aria-label="Close reservations modal"
+                        >
+                            ×
+                        </button>
+
+                        <h2
+                            id="reservation-coming-soon-title"
+                            className="font-['Mondwest'] text-[32px] md:text-[40px] font-bold tracking-[0.08em] leading-none"
+                        >
+                            Reservations Coming Soon
+                        </h2>
+
+                        <p className="font-['Mondwest'] mt-6 text-[22px] md:text-[24px] font-bold tracking-[0.12em] leading-snug">
+                            Online reservations for Silent H NYC will be available soon.
+                        </p>
+
+                        <button
+                            type="button"
+                            onClick={() => setShowReservationModal(false)}
+                            className="font-['Mondwest'] mt-8 px-8 py-3 border border-black text-black text-[18px] tracking-[0.2em] transition-all duration-300 hover:bg-black hover:text-[#ECE1D4] active:text-[#EB4660]"
+                        >
+                            CLOSE
+                        </button>
+                    </div>
+                </div>
+                )}
         </nav>
+
     );
 }

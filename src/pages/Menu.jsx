@@ -3,12 +3,13 @@ import { menuData } from "../data/MenuData";
 import { Camera, CameraOff } from "lucide-react";
 import Footer from "../components/Footer.jsx";
 import SEO from "../components/SEO.jsx";
-import { useOTWidget } from "../components/OTwidget.jsx";
+{/*import { useOTWidget } from "../components/OTwidget.jsx";*/}
 
 export default function Menu() {
     const [activeMenu, setActiveMenu] = useState("food");
     const [expandedItems, setExpandedItems] = useState({});
     const [scrolled, setScrolled] = useState(false);
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -43,7 +44,9 @@ export default function Menu() {
     const items = menuData[activeMenu];
 
 
-    const { setShowWidget } = useOTWidget();
+    {/*const { setShowWidget } = useOTWidget();*/}
+    const [showReservationModal, setShowReservationModal] = useState(false);
+
 
     const breadcrumbSchema = {
         "@context": "https://schema.org",
@@ -714,11 +717,54 @@ export default function Menu() {
                 <Footer/>
 
                 <button
-                    onClick={() => setShowWidget(true)}
+                    onClick={() => setShowReservationModal(true)}
                     className="fixed bottom-6 right-6 z-[9999] bg-[#EB4660] hover:bg-black text-white px-6 py-3 rounded-full shadow-xl tracking-[0.2em] uppercase text-sm transition-all"
                 >
                     Reserve
                 </button>
+
+                {showReservationModal && (
+                    <div
+                        className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 px-6"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="reservation-coming-soon-title"
+                        onClick={() => setShowReservationModal(false)}
+                    >
+                        <div
+                            className="relative w-full max-w-md bg-[#ECE1D4] text-black border border-black px-8 py-10 text-center shadow-2xl"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button
+                                type="button"
+                                onClick={() => setShowReservationModal(false)}
+                                className="absolute right-4 top-3 font-['NeueBit'] text-[28px] leading-none text-black hover:text-[#EB4660] transition-colors"
+                                aria-label="Close reservations modal"
+                            >
+                                ×
+                            </button>
+
+                            <h2
+                                id="reservation-coming-soon-title"
+                                className="font-['Mondwest'] text-[32px] md:text-[40px] font-bold tracking-[0.08em] leading-none"
+                            >
+                                Reservations Coming Soon
+                            </h2>
+
+                            <p className="font-['Mondwest'] mt-6 text-[22px] md:text-[24px] font-bold tracking-[0.12em] leading-snug">
+                                Online reservations for Silent H NYC will be available soon.
+                            </p>
+
+                            <button
+                                type="button"
+                                onClick={() => setShowReservationModal(false)}
+                                className="font-['Mondwest'] mt-8 px-8 py-3 border border-black text-black text-[18px] tracking-[0.2em] transition-all duration-300 hover:bg-black hover:text-[#ECE1D4] active:text-[#EB4660]"
+                            >
+                                CLOSE
+                            </button>
+                        </div>
+                    </div>
+                )}
             </main>
         </>
     )

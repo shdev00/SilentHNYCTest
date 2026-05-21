@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import MenuCarousel from "../components/MenuCarousel";
-import {useOTWidget} from "../components/OTwidget.jsx";
+{/*import {useOTWidget} from "../components/OTwidget.jsx";*/}
 import SEO from "../components/SEO";
 
 {/* Change/add values here to change/add images to carousel
@@ -55,7 +55,11 @@ export default function Home() {
             "reviewCount": "1251"
         }
     };
-    const { setShowWidget } = useOTWidget();
+    {/*const { setShowWidget } = useOTWidget();
+
+    const [heroCollapsed, setHeroCollapsed] = useState(false);*/}
+
+    const [showReservationModal, setShowReservationModal] = useState(false);
 
     const [heroCollapsed, setHeroCollapsed] = useState(false);
 
@@ -131,7 +135,7 @@ export default function Home() {
                                 by Chef Gerardo, every dish honours authentic Mexican tradition.
                             </p>*/}
                             <button
-                                onClick={() => setShowWidget(true)}
+                                onClick={() => setShowReservationModal(true)}
                                 className="font-['NeueBit'] transition-all duration-500 tracking-[20%] text-[20px] lg:text-[20px] md:text-[20px] sm:text-[20px] ease-in-out text-2xl mt-6 px-8.5 py-2.5 border border-white text-white font-medium hover:bg-[#ECE1D4] hover:text-black tracking-[0.16em] active:border-transparent active:bg-black active:text-[#EB4660]"
                             >
                                 RESERVE NOW
@@ -153,7 +157,7 @@ export default function Home() {
                             Upscale Mexican dining in Toronto, where bold flavours meet a vibrant atmosphere. Guided by Chef Gerardo, every dish honours authentic Mexican tradition.
                         </p>*/}
                             <button
-                                onClick={() => setShowWidget(true)}
+                                onClick={() => setShowReservationModal(true)}
                                 className="font-['NeueBit'] transition-all duration-500 tracking-[20%] text-[20px] lg:text-[20px] md:text-[20px] sm:text-[20px] ease-in-out text-2xl mt-6 px-8.5 py-2.5 border border-white text-white font-medium hover:bg-[#ECE1D4] hover:text-black tracking-[0.16em] active:border-transparent active:bg-black active:text-[#EB4660]"
                             >
                                 RESERVE NOW
@@ -362,23 +366,90 @@ export default function Home() {
 
                 {/* Private Dining & Events Section */}
                 <section
-                    className="relative min-h-[568px] h-[71vh] lg:h-[80vh] w-full bg-cover bg-center bg-fixed private"
-                    style={{
-                        backgroundImage: "url('/dining.webp')",
-                    }}
+                    className="bg-[#ECE1D4] relative min-h-[568px] h-[71vh] lg:h-[80vh] w-full private overflow-hidden"
                 >
-                    {/* Dark overlay */}
-                    <div className="absolute inset-0 bg-black/29"></div>
+                    {/* Decorative top border */}
+                    <div
+                        className="hidden md:block dec-border pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 z-0 w-full flex justify-center">
+                        {/* Decoration behind, spanning full width - most dynamic option */}
+                        <img
+                            src="/dec2.png"
+                            alt=""
+                            className="
+                                  absolute
+                                  top-1/2 translate-y-[calc(-52.2%)]   /* vertically centers with the switch */
+                                  left-1/2 translate-x-[calc(-52%)]  /* centers horizontally */
+                                  rotate-90
+                                  w-[20%]                 /* change this to adjust size */
+                                  max-w-[90vw]               /* shrink on smaller screens */
+                                  h-auto
+                                  opacity-40
+                                  pointer-events-none
+                                  z-0
+                                "
+                            style={{transformOrigin: "center"}}
+                        />
+                    </div>
+
+                    <div
+                        className="safarifix md:hidden">
+                        {/* Safari only uses vertically oriented image and vanilla css */}
+                        <img
+                            src="/dec2.png"
+                            alt=""
+                            className="
+                                  decoration-img
+                                "
+                            style={{transformOrigin: "center",}}
+                        />
+                    </div>
+
+                    {/* (Safari only) Decorative bottom border */}
+                    <div
+                        className="safarifixbtm md:hidden">
+                        {/* Decoration behind, spanning full width - most dynamic option */}
+                        <img
+                            src="/dec2.png"
+                            alt=""
+                            className="
+                                  bttm-dec
+                                "
+                            style={{transformOrigin: "center"}}
+                        />
+                    </div>
+
+                    {/* Decorative bottom border */}
+                    <div
+                        className="hidden md:block dec-border pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 z-0 w-full flex justify-center">
+                        {/* Decoration behind, spanning full width - most dynamic option */}
+                        <img
+                            src="/dec2.png"
+                            alt=""
+                            className="
+                                  absolute
+                                  top-1/2 translate-y-[calc(-47.8%)]   /* vertically centers with the switch */
+                                  left-1/2 translate-x-[calc(-52%)]  /* centers horizontally */
+                                  rotate-90
+                                  w-[20%]                 /* change this to adjust size */
+                                                /* shrink on smaller screens */
+                                  h-auto
+                                  opacity-40
+                                  pointer-events-none
+                                  z-0
+                                "
+                            style={{transformOrigin: "center"}}
+                        />
+                    </div>
 
                     {/* Content */}
                     <div
-                        className="h2outer relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-[167px] pb-[167px]">
-                        <h2 className="font-bold text-white tracking-[0.16em]
+                        className="h2outer relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-[155px] pb-[167px]">
+                        <h2 className="font-bold text-black-900 tracking-[0.16em]
                  text-[clamp(1.5rem,4vw,1.75rem)] 2xl:text-[clamp(1.8rem,4.8vw,2.1rem)]">
                             Private Dining &amp; Events in NYC
                         </h2>
 
-                        <p className="font-['NeueBit'] mt-6 max-w-6xl text-gray-200 tracking-[0.16em] ml-10 md:ml-0
+                        <p className="font-['NeueBit'] mt-6 max-w-6xl text-black-900 tracking-[0.16em] ml-10 md:ml-0
                 text-[clamp(0.9rem,2vw,1.45rem)] leading-snug">
                             Plan your celebración auténtica in our vibrant space. <br/>
                             Book your holiday event before <span className="font-['NeueBit']">October 31st</span> and
@@ -389,14 +460,14 @@ export default function Home() {
                             <span className="font-['NeueBit'] text-[clamp(14px,19px,23px)] tracking-[0.16em]"> Terms Apply</span>
                         </p>
 
-                        <Link
+                        {/*<Link
                             to={"/events"}
                             className="btn font-['NeueBit'] font-bold mt-5 px-12 ml-20.5 md:ml-0 py-3 border border-white text-white
                text-[clamp(0.9rem,1.8vw,1.25rem)] transition-all duration-500 ease-in-out
                tracking-[0.2em] hover:bg-[#ECE1D4] hover:text-black transition active:bg-black active:text-[#EB4660] active:border-transparent"
                         >
                             PLAN YOUR EVENT
-                        </Link>
+                        </Link>*/}
                     </div>
 
                 </section>
@@ -774,7 +845,7 @@ export default function Home() {
                         {/* Centered CTA below the grid */}
                         <div className="flex justify-center">
                             <button
-                                onClick={() => setShowWidget(true)}
+                                onClick={() => setShowReservationModal(true)}
                                 className="
                                       specbtn font-['NeueBit'] text-[clamp(14px,18px,22px)] font-bold text-black tracking-[4px] leading-[1] font-bold mt-10 px-16 py-[20px]
                                       border border-black text-black tracking-[0.30em]
@@ -819,6 +890,49 @@ export default function Home() {
                         />
                     </div>
                 </section>
+
+                {showReservationModal && (
+                    <div
+                        className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 px-6"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="reservation-coming-soon-title"
+                        onClick={() => setShowReservationModal(false)}
+                    >
+                        <div
+                            className="relative w-full max-w-md bg-[#ECE1D4] text-black border border-black px-8 py-10 text-center shadow-2xl"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button
+                                type="button"
+                                onClick={() => setShowReservationModal(false)}
+                                className="absolute right-4 top-3 font-['NeueBit'] text-[28px] leading-none text-black hover:text-[#EB4660] transition-colors"
+                                aria-label="Close reservations modal"
+                            >
+                                ×
+                            </button>
+
+                            <h2
+                                id="reservation-coming-soon-title"
+                                className="font-['Mondwest'] text-[32px] md:text-[40px] font-bold tracking-[0.08em] leading-none"
+                            >
+                                Reservations Coming Soon
+                            </h2>
+
+                            <p className="font-['Mondwest'] mt-6 text-[22px] md:text-[24px] font-bold tracking-[0.12em] leading-snug">
+                                Online reservations for Silent H NYC will be available soon.
+                            </p>
+
+                            <button
+                                type="button"
+                                onClick={() => setShowReservationModal(false)}
+                                className="font-['Mondwest'] mt-8 px-8 py-3 border border-black text-black text-[18px] tracking-[0.2em] transition-all duration-300 hover:bg-black hover:text-[#ECE1D4] active:text-[#EB4660]"
+                            >
+                                CLOSE
+                            </button>
+                        </div>
+                    </div>
+                )}
 
 
                 <Footer/>
