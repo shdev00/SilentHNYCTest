@@ -85,7 +85,7 @@ export default function Footer() {
                     <div className="font-['NeueBit'] text-center md:text-right text-sm md:text-base tracking-[0.20em]">
                         <p className="font-bold">
                             <a
-                                href="https://www.google.com/maps/place/?q=place_id:ChIJg4KPc3Y1K4gR91c0-HfMgsI"
+                                href="https://maps.app.goo.gl/AqPCaPEVAJg6xb3QA"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="hover:opacity-70"
