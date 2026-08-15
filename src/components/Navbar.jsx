@@ -1,316 +1,173 @@
-import { useState, useEffect } from "react";
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
-import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
-{/*import { useOTWidget } from "./OTwidget";*/}
+import { useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { Menu as MenuIcon, X } from "lucide-react";
+import { FaInstagram, FaTiktok } from "react-icons/fa";
+import { LuFacebook } from "react-icons/lu";
+import { useOTWidget } from "./OTwidget";
 
+// Desktop nav matches the .main-nav (globals.css): a fixed 620×74 centered
+// pill, radius 999, bg rgba(0,0,0,.4) + backdrop-blur 10, top 42px, laid out as a 5-col
+// grid 0.9fr / 1.25fr / 74px(brand) / 0.9fr / 1.3fr:
+//   MENU · HAPPY HOUR · [Silent-H logo 38×56 in a 68px box] · RESERVE · PLAN AN EVENT
+// Links: NeueBit(body) bold uppercase 15px, ls 0.13em, place-items-center, pad 0 7px,
+// hover → pink. Dynamic controls kept (differ from the 's static Next site):
+// router NavLinks for the real routes, "Reserve" opens the OT widget, logo → scroll-top,
+// active link tinted pink (colour only — no sparkles, so the grid metrics stay exact).
+// Mobile is our own full-width glass bar + hamburger/overlay (unchanged).
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
-    {/*const { setShowWidget } = useOTWidget();*/}
-
-    const [showReservationModal, setShowReservationModal] = useState(false);
-
-
-    const navigate = useNavigate();
+    const { openReservationWidget } = useOTWidget();
     const location = useLocation();
 
     const handleLogoClick = (e) => {
         setIsOpen(false);
-
         if (location.pathname === "/") {
             e.preventDefault();
-
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: "smooth",
-            });
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         }
     };
 
-    const links = [
-        { to: "/menu", label: "Menu" },
-        { to: "/reservations", label: "Reservations" },
-        //{ to: "/events", label: "Plan an Event" },
-        { to: "/story", label: "Our Story" },
-        { label: "Happy Hour", scrollId: "happy-hour" },
+    // 's .main-nav > a: grid cell, place-items center, height 100%, pad 0 7px,
+    // NeueBit(body) bold uppercase 15px, ls 0.13em, 180ms colour transition, hover → pink.
+    const linkBase =
+        "grid place-items-center h-full px-[7px] text-center whitespace-nowrap font-body font-bold uppercase text-[15px] tracking-[0.13em] transition-colors duration-[180ms]";
 
-        //{ to: "/aitch", label: "Enter Aitch", external: true },
-        //removed, remove comment to manifest in navbar aga in
-        //{ to: "/aitch", label: "Enter Aitch" },
+    // Mobile menu-overlay links (Reserve has no `to` — it opens the OT widget).
+    const MOBILE_LINKS = [
+        { to: "/menu", label: "Menu" },
+        { to: "/happy-hour", label: "Happy Hour" },
+        { label: "Reserve" },
+        { to: "/events", label: "Plan an Event" },
     ];
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20); // threshold for fade-in
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    // Desktop pill link. Active page = pink (colour only, no sparkles → grid metrics stay exact).
+    const NavItem = ({ to, children }) => (
+        <NavLink
+            to={to}
+            className={({ isActive }) =>
+                `${linkBase} ${isActive ? "text-sh-pink" : "text-sh-cream hover:text-sh-pink"}`
+            }
+        >
+            {children}
+        </NavLink>
+    );
+
+    const Logo = ({ className }) => (
+        <NavLink to="/" onClick={handleLogoClick} aria-label="Silent H home" className="shrink-0">
+            <img src="/redesign/nav-logo.svg" alt="Silent H" className={className} loading="eager" decoding="async" />
+        </NavLink>
+    );
 
     return (
-        <nav
-            className={`fixed top-0 left-0 right-0 z-50 font-['NeueBit'] transition-colors duration-0 ${
-                scrolled ? "bg-[#EB4660]/100 shadow-md" : "bg-[#EB4660]/100"
-            }`}
-        >
-            <div className="md:mx-0 lg:mx-[-6px] xl:mx-1 2xl:mx-19 max-w-[1280px] flex items-center justify-between h-[96px] px-[8px] xs:px-[1vw] sm:px-[1vw] md:px-[75.5px] lg:px-[78.5px] xl:px-[69px] 2xl:px-[0px]">
-                {/* Logo */}
+        <header className="fixed top-0 inset-x-0 z-50 flex justify-center pointer-events-none">
+            {/* Desktop centered pill — 's .main-nav: fixed 620×74 (shrinks to
+                100vw-24 below ~644px), top 42px, 5-col grid, radius 999, bg black/40 +
+                blur 10, two-layer shadow. */}
+            <nav
+                aria-label="Primary navigation"
+                className="pointer-events-auto hidden md:grid items-center mt-[42px] h-[74px] w-[min(620px,calc(100vw-24px))] rounded-[999px] bg-black/40 backdrop-blur-[10px] [grid-template-columns:0.9fr_1.25fr_74px_0.9fr_1.3fr] [box-shadow:0_20px_25px_-5px_rgba(0,0,0,0.3),0_8px_10px_-6px_rgba(0,0,0,0.3)]"
+            >
+                <NavItem to="/menu">Menu</NavItem>
+                <NavItem to="/happy-hour">Happy Hour</NavItem>
+                {/* brand-mark — 68px grid cell, logo 38×56 object-contain ( .brand-mark) */}
                 <NavLink
                     to="/"
                     onClick={handleLogoClick}
-                    className="flex items-center shrink-0"
-                    aria-label="SilentH home"
+                    aria-label="Silent H home"
+                    className="grid place-items-center justify-self-center w-[68px] h-[68px]"
                 >
-                    <img
-                        src="/Layer_1.svg"
-                        alt="SilentH"
-                        className="h-[66%] aspect-[25/32] shrink-0 block pl-1 transform "
-                        loading="eager"
-                        decoding="async"
-                    />
+                    <img src="/redesign/nav-logo.svg" alt="Silent H" className="w-[38px] h-[56px] object-contain" loading="eager" decoding="async" />
                 </NavLink>
-
-                {/* Desktop Nav change href=/aitch if it shows index.html suffix*/}
-                <ul className="hidden md:flex md:flex-nowrap whitespace-nowrap md:pl-10 lg:pl-15 md:gap-26 lg:gap-45 2xl:gap-35 2xl:ml-32 text-[20px] md:text-sm lg:text-[20px] 2xl:text-[1.4em] font-bold uppercase tracking-[0.224em]">
-                    {links.map(({ to, label, external, scrollId }, idx) => (
-                        <li key={label}>
-                            {scrollId ? (
-                                <button
-                                    onClick={() => {
-                                        if (location.pathname !== "/") {
-                                            navigate("/", { state: { scrollTo: scrollId } });
-                                        } else {
-                                            const el = document.getElementById(scrollId);
-                                            if (el) {
-                                                const yOffset = -100;
-                                                const y =
-                                                    el.getBoundingClientRect().top +
-                                                    window.pageYOffset +
-                                                    yOffset;
-
-                                                window.scrollTo({ top: y, behavior: "smooth" });
-                                            }
-                                        }
-                                    }}
-                                    className={`uppercase relative inline-flex justify-center items-center py-2 
-                ${idx === 0 ? "font-['NeueBit'] w-[225%] after:w-[100%]" : "w-[140%] after:w-[100%]"}
-                after:content-[''] after:absolute after:left-1/2 after:translate-x-[-50%] 
-                after:bottom-0 after:h-[1px]
-                after:bg-black after:opacity-0 after:transition-opacity after:duration-500 after:ease-in-out
-                hover:after:opacity-100
-                text-black`}
-                                >
-                                    {label}
-                                </button>
-
-                            ) : external ? (
-                                <a
-                                    href="/aitch/"
-                                    className={`relative inline-flex justify-center items-center py-2 
-                ${idx === 0 ? "font-['NeueBit'] w-[225%] after:w-[100%]" : "w-[140%] after:w-[100%]"}
-                after:content-[''] after:absolute after:left-1/2 after:translate-x-[-50%]
-                after:bottom-0 after:h-[1px]
-                after:bg-black after:opacity-0 after:transition-opacity after:duration-500 after:ease-in-out
-                hover:after:opacity-100
-                text-black`}
-                                >
-                                    {label}
-                                </a>
-
-                            ) : label === "Reservations" ? (
-                                <button
-                                    type="button"
-                                    onClick={() => setShowReservationModal(true)}
-                                    className={`uppercase relative inline-flex justify-center items-center py-2 
-        ${idx === 0 ? "font-['NeueBit'] w-[225%] after:w-[100%]" : "w-[140%] after:w-[100%]"}
-        after:content-[''] after:absolute after:left-1/2 after:translate-x-[-50%] 
-        after:bottom-0 after:h-[1px]
-        after:bg-black after:opacity-0 after:transition-opacity after:duration-500 after:ease-in-out
-        hover:after:opacity-100
-        text-black`}
-                                >
-                                    {label}
-                                </button>
-
-                            ) : (
-                                <NavLink
-                                    to={to}
-                                    className={({isActive}) =>
-                                        `relative inline-flex justify-center items-center py-2
-                    ${idx === 0 ? "font-['NeueBit'] w-[225%] after:w-[100%]" : "w-[140%] after:w-[100%]"}
-                    after:content-[''] after:absolute after:left-1/2 after:translate-x-[-50%]
-                    after:bottom-0 after:h-[1px] 
-                    after:bg-black after:opacity-0 after:transition-opacity after:duration-500 after:ease-in-out
-                    hover:after:opacity-100
-                    ${isActive ? "text-black after:opacity-100" : "text-black"}`
-                                    }
-                                >
-                                    {label}
-                                </NavLink>
-                            )}
-                        </li>
-                    ))}
-                </ul>
-
-                {/* Mobile Hamburger */}
+                {/* RESERVE — opens OT widget (kept dynamic; the  uses a mailto link) */}
                 <button
-                    className={`md:hidden transition-colors duration-500 pr-5 ${
-                    scrolled ? "text-black" : "text-black"
-                }`}
-                    onClick={() => setIsOpen(!isOpen)}
-                    aria-label="Toggle Menu"
+                    onClick={openReservationWidget}
+                    className={`${linkBase} text-sh-cream hover:text-sh-pink cursor-pointer`}
                 >
-                    {isOpen ? <X size={28} /> : <Menu size={28} />}
+                    Reserve
                 </button>
-            </div>
+                <NavItem to="/events">Plan an Event</NavItem>
+            </nav>
 
-            {/* Mobile Overlay Menu */}
+            {/* Mobile bar — full-width GLASS strip (Figma Frame 1589: 393×64, black/60 +
+                backdrop-blur 10). Pink Silent-H mark left, white hamburger right; no pill. */}
+            <nav className="pointer-events-auto md:hidden absolute top-0 inset-x-0 flex items-center justify-between w-full h-16 px-[28px] bg-black/60 backdrop-blur-[10px]">
+                <Logo className="h-[41px] w-auto" />
+                <button
+                    className="text-sh-cream"
+                    onClick={() => setIsOpen(true)}
+                    aria-label="Open menu"
+                >
+                    <MenuIcon size={24} />
+                </button>
+            </nav>
+
+            {/* Mobile menu overlay — Figma "Mobile - Menu" (6070:1124, 393×853). Full #0b0b0b
+                screen ABOVE the glass bar (z-60 so the blur strip can't show the page through).
+                Positions match the design's vertical rhythm (logo 11.7% top · links 35.5% ·
+                contact us ~89%): logo top-centre, close-X top-right, 4 links split by RED rules,
+                social icons + "contact us" near the bottom. */}
             {isOpen && (
-                <div className="fixed inset-0 bg-[#EB4660] flex flex-col items-center justify-center space-y-10 z-40">
-                    <NavLink
-                        to="/"
-                        onClick={handleLogoClick}
-                        className="absolute top-6 left-6 flex items-center shrink-0"
-                        aria-label="SilentH home"
-                    >
-                        <img src="/Layer_1.svg" alt="SilentH" className="h-10" />
-                    </NavLink>
+                <div className="pointer-events-auto md:hidden fixed inset-0 z-[60] h-[100dvh] bg-sh-ink flex flex-col items-center">
                     <button
                         onClick={() => setIsOpen(false)}
-                        className="absolute top-6 right-6 text-black"
-                        aria-label="Close Menu"
+                        className="absolute top-5 right-5 text-sh-cream"
+                        aria-label="Close menu"
                     >
-                        <X size={28} />
+                        <X size={24} />
                     </button>
 
-                    {links.map(({ to, label , scrollId}) =>
-                        label === "Reservations" ? (
-                            <button
-                                key={label}
-                                onClick={() => {
-                                    setIsOpen(false);
-                                    setShowReservationModal(true);
-                                }}
-                                className="text-[18px] uppercase tracking-[3.6px] text-center text-black font-bold hover:text-white transition"
-                            >
-                                {label}
-                            </button>
+                    {/* Big pink Silent-H mark (design top y100 ≈ 11.7%) */}
+                    <Logo className="h-[93px] w-auto mt-[11.7vh]" />
 
-                        ) : scrollId ? (
-                            <button
-                                key={label}
-                                onClick={() => {
-                                    setIsOpen(false);
-
-                                    if (location.pathname !== "/") {
-                                        navigate("/", { state: { scrollTo: scrollId } });
-                                    } else {
-                                        const el = document.getElementById(scrollId);
-                                        if (el) {
-                                            const yOffset = -100;
-                                            const y =
-                                                el.getBoundingClientRect().top +
-                                                window.pageYOffset +
-                                                yOffset;
-
-                                            window.scrollTo({ top: y, behavior: "smooth" });
+                    {/* Nav links — NeueBit 16 UPPER, 228 wide, divided by 1px RED rules; 88px pitch
+                        (link 32 + 28 gap + rule + 28 gap). Design links block starts ~35.5% down. */}
+                    <nav className="mt-[13vh] w-[228px] flex flex-col">
+                        {MOBILE_LINKS.map((l, i) => (
+                            <div key={l.label} className="contents">
+                                {/* DOTTED red rule (Figma dashPattern [1,8], round caps): 1px dots ~9px apart */}
+                                {i > 0 && (
+                                    <span
+                                        className="my-7 h-px w-full"
+                                        style={{
+                                            backgroundImage: "radial-gradient(circle, #eb4660 1.15px, transparent 1.5px)",
+                                            backgroundSize: "9px 100%",
+                                            backgroundRepeat: "repeat-x",
+                                        }}
+                                    />
+                                )}
+                                {l.to ? (
+                                    <NavLink
+                                        to={l.to}
+                                        onClick={() => setIsOpen(false)}
+                                        className={({ isActive }) =>
+                                            `h-8 flex items-center justify-center font-body uppercase text-[16px] tracking-[0.1em] transition-colors ${isActive ? "text-sh-pink" : "text-sh-cream hover:text-sh-pink"}`
                                         }
-                                    }
-                                }}
-                                className="text-[18px] uppercase tracking-[3.6px] text-center text-black font-bold hover:text-white transition"
-                            >
-                                {label}
-                            </button>
+                                    >
+                                        {l.label}
+                                    </NavLink>
+                                ) : (
+                                    <button
+                                        onClick={openReservationWidget}
+                                        className="h-8 flex items-center justify-center font-body uppercase text-[16px] tracking-[0.1em] text-sh-cream hover:text-sh-pink transition-colors"
+                                    >
+                                        {l.label}
+                                    </button>
+                                )}
+                            </div>
+                        ))}
+                    </nav>
 
-                        ) : (
-                            <NavLink
-                                key={label}
-                                to={to}
-                                onClick={() => setIsOpen(false)}
-                                className="text-[18px] uppercase tracking-[3.6px] text-center text-black font-bold hover:text-white transition"
-                            >
-                                {label}
-                            </NavLink>
-                        )
-                    )}
-
-                    <div className="flex gap-[32px] mt-[80px]">
-                        <a href="https://www.tiktok.com/@silenth.to?lang=en" aria-label="TikTok"><FaTiktok/></a>
-                        <a href="https://www.instagram.com/silenth.to/?hl=en" aria-label="Instagram"><FaInstagram/></a>
-                        <a href="https://www.facebook.com/silenth.tor/" aria-label="Facebook"><FaFacebookF/></a>
-                    </div>
-                    <button className="mt-0 uppercase font-size[16px] tracking-[3.2px] pl-1 font-bold text-black hover:text-white transition">
-                        Contact Us
-                    </button>
-                    {/* Decorative bottom border */}
-                    <div
-                        className="dec-border safari-fix pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 z-0 w-full flex justify-center">
-                        {/* Decoration behind, spanning full width - most dynamic option */}
-                        <img
-                            src="/dark-dec.png"
-                            alt=""
-                            className="
-                                  absolute
-                                  top-1/2 translate-y-[calc(-100.8%)]   /* vertically centers with the switch */
-                                  left-1/2 translate-x-[calc(-50%+6px)]  /* centers horizontally */
-
-                                  w-[100%]                 /* change this to adjust size */
-                                  mix-blend-multiply
-                                  h-auto
-                                  opacity-[1]
-                                  pointer-events-none
-                                  z-0
-                                "
-                            style={{transformOrigin: "center"}}
-                        />
+                    {/* Bottom: social icons + "contact us" (design contact ~89% → ~11% from bottom) */}
+                    <div className="mt-auto mb-[12vh] flex flex-col items-center gap-4">
+                        <div className="flex gap-7 text-sh-cream text-[22px]">
+                            <a href="https://www.instagram.com/silenth.to/?hl=en" aria-label="Instagram" className="hover:text-sh-pink transition-colors"><FaInstagram /></a>
+                            <a href="https://www.facebook.com/silenth.to/" aria-label="Facebook" className="hover:text-sh-pink transition-colors"><LuFacebook /></a>
+                            <a href="https://www.tiktok.com/@silenth.to?lang=en" aria-label="TikTok" className="hover:text-sh-pink transition-colors"><FaTiktok /></a>
+                        </div>
+                        <a href="mailto:info@silenth.ca" className="font-body uppercase text-sh-cream text-[16px] tracking-[0.2em] hover:text-sh-pink transition-colors">contact us</a>
                     </div>
                 </div>
             )}
-            {showReservationModal && (
-                <div
-                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 px-6"
-                    role="dialog"
-                    aria-modal="true"
-                    aria-labelledby="reservation-coming-soon-title"
-                    onClick={() => setShowReservationModal(false)}
-                >
-                    <div
-                        className="relative w-full max-w-md bg-[#ECE1D4] text-black border border-black px-8 py-10 text-center shadow-2xl"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <button
-                            type="button"
-                            onClick={() => setShowReservationModal(false)}
-                            className="absolute right-4 top-3 font-['NeueBit'] text-[28px] leading-none text-black hover:text-[#EB4660] transition-colors"
-                            aria-label="Close reservations modal"
-                        >
-                            ×
-                        </button>
-
-                        <h2
-                            id="reservation-coming-soon-title"
-                            className="font-['Mondwest'] text-[32px] md:text-[40px] font-bold tracking-[0.08em] leading-none"
-                        >
-                            Reservations Coming Soon
-                        </h2>
-
-                        <p className="font-['Mondwest'] mt-6 text-[22px] md:text-[24px] font-bold tracking-[0.12em] leading-snug">
-                            Online reservations for Silent H NYC will be available soon.
-                        </p>
-
-                        <button
-                            type="button"
-                            onClick={() => setShowReservationModal(false)}
-                            className="font-['Mondwest'] mt-8 px-8 py-3 border border-black text-black text-[18px] tracking-[0.2em] transition-all duration-300 hover:bg-black hover:text-[#ECE1D4] active:text-[#EB4660]"
-                        >
-                            CLOSE
-                        </button>
-                    </div>
-                </div>
-                )}
-        </nav>
-
+        </header>
     );
 }

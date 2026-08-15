@@ -1,19 +1,44 @@
-export default function SEO({ title, description, jsonLd, url }) {
+// src/components/SEO.jsx
+
+export default function SEO({
+                                title,
+                                description,
+                                jsonLd,
+                                url,
+                                index = true,
+                                preloads = [],
+                            }) {
     return (
         <>
-            {/* Title */}
             <title>{title}</title>
 
-            {/* Meta Description */}
-            <meta name="description" content={description} />
+            {description && (
+                <meta name="description" content={description} />
+            )}
 
-            {/* Canonical */}
-            {url && <link rel="canonical" href={url} />}
+            {url && (
+                <link rel="canonical" href={url} />
+            )}
 
-            {/* Robots */}
-            <meta name="robots" content="index, follow" />
+            <meta
+                name="robots"
+                content={index ? "index, follow" : "noindex, nofollow"}
+            />
 
-            {/* JSON-LD (supports single object OR array) */}
+            {preloads.map((preload) => (
+                <link
+                    key={`${preload.href}-${preload.media ?? "all"}`}
+                    rel="preload"
+                    as="image"
+                    href={preload.href}
+                    type={preload.type}
+                    media={preload.media}
+                    imageSrcSet={preload.imageSrcSet}
+                    imageSizes={preload.imageSizes}
+                    fetchPriority={preload.fetchPriority ?? "high"}
+                />
+            ))}
+
             {jsonLd && (
                 <script type="application/ld+json">
                     {JSON.stringify(jsonLd)}

@@ -1,5 +1,6 @@
 // src/components/OTWidget.jsx
 import { createContext, useContext, useEffect, useState } from "react";
+import { trackReservationStarted } from "../lib/openaiPixel";
 
 // Context so we can trigger modal from anywhere
 const OTContext = createContext();
@@ -7,13 +8,18 @@ const OTContext = createContext();
 export function OTProvider({ children }) {
     const [showWidget, setShowWidget] = useState(false);
 
-    const openOT = () => {
-        if (window.matchMedia("(max-width: 640px)").matches) {
-            window.open("https://www.opentable.ca/r/silent-h-toronto", "_blank", "noopener,noreferrer");
-        } else {
-            setShowWidget(true);
+    const openReservationWidget = () => {
+        try {
+            trackReservationStarted();
+        } catch (error) {
+            console.warn("[OpenAI Pixel] Reservation tracking failed:", error);
         }
+
+        setShowWidget(true);
     };
+
+    // rest unchanged...
+
 
     useEffect(() => {
         if (showWidget) {
@@ -32,7 +38,7 @@ export function OTProvider({ children }) {
     }, [showWidget]);
 
     return (
-        <OTContext.Provider value={{ setShowWidget }}>
+        <OTContext.Provider value={{ setShowWidget, openReservationWidget }}>
             {children}
 
             {showWidget && (
@@ -40,14 +46,16 @@ export function OTProvider({ children }) {
                     className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm"
                     onClick={() => setShowWidget(false)}
                 >
-                    {/* Modal frame */}
+                    {/* Modal frame — intentionally kept light: it wraps the light OpenTable
+                        iframe (themed primary_color=F4F1EC), which can't be restyled from CSS.
+                        A dark frame around a light widget reads worse (G-12). */}
                     <div
                         className="relative bg-[#F9F6F1] rounded-xl shadow-2xl p-6 w-[60%] md:w-[20%] lg:w-[30%] xl:w-[18%] max-h-[90vh] flex flex-col"
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Close button */}
                         <button
-                            className="absolute top-4 right-4 text-black text-2xl z-10"
+                            className="absolute top-4 right-4 text-black text-2xl z-10 hover:text-[#EB4660]"
                             onClick={() => setShowWidget(false)}
                         >
                             ×

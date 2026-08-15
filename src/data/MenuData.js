@@ -33,7 +33,7 @@ export const menuData = {
                     description: "Three mini crispy pork belly chicharrón tacos, avocado mousse, " +
                         "fermented habanero salsa, onion, avocado, cilantro, lime.\n",
                     price: 19,
-                    image: "menu/TacosChich.webp"
+                    image: "/menu/TacosChich.webp"
                 },
                 {
                     id: 5,
@@ -48,14 +48,14 @@ export const menuData = {
                     name: "Tostadas de atún",
                     description: "Fire-charred corn tostadas, guacamole, chipotle dressed tuna, fried red onions, Tajín mayo",
                     price: 24,
-                    image: "menu/TostAtun.webp"
+                    image: "/menu/TostAtun.webp"
                 },
                 {
                     id: 7,
                     name: "Tacos olvidados",
                     description: "Black tiger shrimp, bacon, mozzarella, shrimp consommé, served over hot river stones",
                     price: 26,
-                    image: "menu/TACOLIV.webp"
+                    image: "/menu/TACOLIV.webp"
                 },
                 {
                     id: 8,
@@ -78,14 +78,14 @@ export const menuData = {
                     description: "Cheese-crusted rib eye slices, avocado, grilled onions, chives, served on corn tortillas\n",
                     subtext: "add bone marrow $14",
                     price: 47,
-                    image: "menu/CACHETADA.webp"
+                    image: "/menu/CACHETADA.webp"
                 },
                 {
                     id: 1,
                     name: "Pollo al pastor",
                     description: "Pastor grilled chicken thigh, grilled pineapple, fried fingerling potatoes, guacamole",
                     price: 32,
-                    image: "menu/Pollo.webp"
+                    image: "/menu/Pollo.webp"
                 },
                 {
                     id: 2,
@@ -93,7 +93,7 @@ export const menuData = {
                     description: "Mezquite grilled rib eye skewers (10 oz), " +
                         "serrano ashes oil, salsa verde, grilled pearl onion, avocado mousse, green onion curls, tortillas",
                     price: 72,
-                    image: "menu/ESPADA.webp"
+                    image: "/menu/ESPADA.webp"
                 },
                 {
                     id: 3,
@@ -101,14 +101,14 @@ export const menuData = {
                     description: "44 oz serrano and tortilla ashes covered mesquite grilled AAA tomahawk, " +
                         "72 hour morita au jus, tortillas, grilled lemon",
                     price: 340,
-                    image: "menu/44oz.webp"
+                    image: "/menu/44oz.webp"
                 },
                 {
                     id: 4,
                     name: "Pescado En Crema De Chile ",
                     description: "Butterflied robalo fillet, serrano cream, serrano ashes oil, avocado and chicharrón salad",
                     price: 56,
-                    image: "menu/PescadoNew.webp"
+                    image: "/menu/PescadoNew.webp"
                 },
                 // more Principales...
             ]
@@ -121,14 +121,14 @@ export const menuData = {
                     name: "Papas en jugo de carne",
                     description: "Triple fried russet, beef jus, grated cotija cheese, fresh chives",
                     price: 12,
-                    image: "menu/PapasJugo.webp"
+                    image: "/menu/PapasJugo.webp"
                 },
                 {
                     id: 1,
                     name: "Esquite",
                     description: "Andean corn, serrano cream, guajillo and ancho powder, cotija cheese, butter",
                     price: 14,
-                    image: "menu/Esquite.webp"
+                    image: "/menu/Esquite.webp"
                 },
                 {
                     id: 2,
@@ -136,7 +136,7 @@ export const menuData = {
                     description: "Mezquite roasted beets, carrot, rosemary garlic vinaigrette, " +
                         "served over fresh jocoque with serrano chile and lime",
                     price: 14,
-                    image: "menu/Vegetales.webp"
+                    image: "/menu/Vegetales.webp"
                 },
                 // more Complementos...
             ]
@@ -149,21 +149,21 @@ export const menuData = {
                     name: "Buñuelos de coco y maracuya",
                     description: "Buñuelo, coconut cream gelato, passion fruit cream, passion fruit reduction, flowers\n",
                     price: 24,
-                    image: "menu/Bunu.webp"
+                    image: "/menu/Bunu.webp"
                 },
                 {
                     id: 1,
                     name: "Delicias de mango",
                     description: "Sable tart filled with 3 leches, delicias frosting, mango mouse",
                     price: 26,
-                    image: "menu/DeliciasMango.webp"
+                    image: "/menu/DeliciasMango.webp"
                 },
                 {
                     id: 2,
                     name: "El favorito de papá",
                     description: "Sticky pear bread, walnut crumble, salted caramel sauce, vanilla gelato",
                     price: 26,
-                    image: "menu/ElFavoritoPapa.webp"
+                    image: "/menu/ElFavoritoPapa.webp"
                 },
 
                 // more
@@ -181,7 +181,7 @@ export const menuData = {
                     region: "BAJA PENINSULA",
                     description: "patrón reposado, cointreau, mango, yuzu, petit sirah, habanero tajín dream",
                     price: 36,
-                    image: "/dmenu/edreamsnew.webp",
+                    image: "/redesign/menu-ensenada.webp",
                     regionImage: "CR-BP.png"
                 },
                 {
@@ -190,7 +190,7 @@ export const menuData = {
                     region: "CENTRAL MEXICO",
                     description: "patrón reposado, clarified coconut, pineapple, lime, prosecco, sorbet, gold",
                     price: 36,
-                    image: "polanco.webp",
+                    image: "/polanco.webp",
                     regionImage: "cent-mex2.png"
                 },
                 {
@@ -200,7 +200,7 @@ export const menuData = {
                     description: "patrón añejo, kahlúa, licor del 43, cacao, lucano, orgeat, aztec chocolate mist, " +
                         "espresso, sea salt, soma chilli chocolate",
                     price: 36,
-                    image: "coatepec.webp",
+                    image: "/coatepec.webp",
                     regionImage: "CR-SG.png"
                 },
                 {
@@ -209,7 +209,7 @@ export const menuData = {
                     region: "PACIFIC COAST",
                     description: "coconut washed patrón añejo, mezcal, agave, mole bitters, fire cloud",
                     price: 36,
-                    image: "oaxaca.jpg",
+                    image: "/oaxaca.webp",
                     regionImage: "CR-PC.png"
                 },
                 {
@@ -218,7 +218,7 @@ export const menuData = {
                     region: "YUCATAN PENINSULA",
                     description: "patrón silver, green chartreuse, jungle juice, lime, ginger, pomegranate, ocean air",
                     price: 36,
-                    image: "jj.webp",
+                    image: "/jj.webp",
                     regionImage: "CR-YP.png"
                 },
                 {
@@ -227,7 +227,7 @@ export const menuData = {
                     region: "NORTHERN MÉXICO",
                     description: "patrón reposado, mezcal, ancho reyes, tepache, cinnamon, Scorpion",
                     price: 36,
-                    image: "dd.webp",
+                    image: "/dd.webp",
                     regionImage: "CR-NM.png"
                 },
                 // add more drinks...
@@ -300,7 +300,7 @@ export const menuData = {
                     description: "patrón silver, cointreau, coconut milk, thai chili",
                     info: "four margaritas served in a cocktail tree",
                     price: 120,
-                    image: "margtree.webp"
+                    image: "/margtree.webp"
                 },
                 {
                     id: 22,
@@ -367,7 +367,7 @@ export const menuData = {
                     name: "Electric Daisy",
                     description: "signature cocktail — served with buzzing flower",
                     price: 70,
-                    image: "edaisysmall.png"
+                    image: "/edaisysmall.png"
                 }
             ]
         },
@@ -379,7 +379,7 @@ export const menuData = {
                 { id: 62, name: "Puntí Ferrer", description: "Pinot Noir", price: 19, price8oz: 28, btl: 85 },
                 { id: 63, name: "Sancho Garcés", description: "Tempranillo Rioja", price: 22, price8oz: 31, btl: 130 },
                 { id: 64, name: "Conforme", description: "Cabernet Sauvignon", btl: 130},
-                { id: 64, name: "Carlos Basso", description: "Malbec Gran Reserva", btl: 150},
+                { id: 65, name: "Carlos Basso", description: "Malbec Gran Reserva", btl: 150},
             ]
         },
         {
@@ -427,7 +427,7 @@ export const menuData = {
         // drink → food → drink → repeat
 
         { id: "c1", type: "drink", name: "Electric Daisy",          image: "/menu/ElectricDaisy.webp" },
-        { id: "c2", type: "food",  name: "44 oz tomahawk",          image: "menu/44oz.webp" },
+        { id: "c2", type: "food",  name: "44 oz tomahawk",          image: "/menu/44oz.webp" },
         {
             id: "c35",
             type: "drink",
@@ -439,7 +439,7 @@ export const menuData = {
             id: "c4",
             type: "drink",
             name: "Coatepec Martini",
-            image: "coatepec.webp "
+            image: "/coatepec.webp"
         },
         {
             id: "c5",
@@ -451,49 +451,49 @@ export const menuData = {
             id: "c6",
             type: "drink",
             name: "Oxaca's Order",
-            image: "oaxaca.jpg "
+            image: "/oaxaca.webp"
         },
         // alternating
         {
             id: "c7",
             type: "drink",
             name: "Jungle Juice Cleanse",
-            image: "jj.webp" },
-        { id: "c8", type: "food",  name: "Espadas de rib eye asadas", image: "menu/ESPADA.webp" },
+            image: "/jj.webp" },
+        { id: "c8", type: "food",  name: "Espadas de rib eye asadas", image: "/menu/ESPADA.webp" },
 
 
         /* double check file paths if intending to use more of the tree.*/
-        { id: "c9",  type: "drink",  name: "Deserted in Durango", image: "dd.webp" },
+        { id: "c9",  type: "drink",  name: "Deserted in Durango", image: "/dd.webp" },
         { id: "c10", type: "drink", name: "Cucumber Tajín Fizz",     image: "/dmenu/fizz-crop.webp" },
         { id: "c13", type: "food",  name: "Empanadas de barbacoa",  image: "/menu/EmpsBarb.webp" },
         { id: "c14", type: "drink", name: "Silent Spritz",           image: "/dmenu/slntsprtzcrop.webp" },
         { id: "c15", type: "drink", name: "Violeta",                 image: "/dmenu/violeta.webp" },
-        { id: "c16", type: "food",  name: "Buñuelos de coco y maracuya",       image: "menu/BUNUELOScrsl.webp" },
+        { id: "c16", type: "food",  name: "Buñuelos de coco y maracuya",       image: "/menu/BUNUELOScrsl.webp" },
         { id: "c17", type: "drink", name: "Poblano and Peach",       image: "/dmenu/pabpech.webp" }, // double drink
-        { id: "c18", type: "drink", name: "Chai Thai",               image: "/menu/clasico1.jpg" },
-        { id: "c19", type: "food",  name: "Tacos olvidados",         image: "menu/TACOLIV.webp" },
-        { id: "c21", type: "drink", name: "Blueberry & Lemon Margarita", image: "drinkH.png" },
+        { id: "c18", type: "drink", name: "Chai Thai",               image: "/menu/AAACARNE.webp" },
+        { id: "c19", type: "food",  name: "Tacos olvidados",         image: "/menu/TACOLIV.webp" },
+        { id: "c21", type: "drink", name: "Blueberry & Lemon Margarita", image: "/drinkH.png" },
         { id: "c22", type: "food",  name: "Flautas carnitas",        image: "/menu/FLAUTAS.webp" },
         { id: "c23", type: "drink", name: "Lil’ Picantes",           image: "/dmenu/lilpcnts.webp" },
         {
             id: "c24",
             type: "drink",
             name: "Piña Polanco",
-            image: "polanco.webp"
+            image: "/polanco.webp"
         },
-        { id: "c25", type: "food",  name: "Cachetadas de rib eye",   image: "menu/CACHETADA.webp" },
+        { id: "c25", type: "food",  name: "Cachetadas de rib eye",   image: "/menu/CACHETADA.webp" },
         { id: "c26", type: "drink", name: "Strawberry & Basil Margarita", image: "/dmenu/margs.webp" },
         { id: "c27", type: "drink", name: "Cucumber & Cilantro Margarita", image: "/dmenu/margs.webp" },
-        { id: "c28", type: "food",  name: "Pollo al pastor",         image: "menu/POLLOPASTOR.webp" },
+        { id: "c28", type: "food",  name: "Pollo al pastor",         image: "/menu/POLLOPASTOR.webp" },
         { id: "c29", type: "drink", name: "Paloma Picante",          image: "/dmenu/plmapcnt.webp" },
-        { id: "c30", type: "drink", name: "Mango Colado Grande",     image: "/menu/amigos1.jpg" },
+        { id: "c30", type: "drink", name: "Mango Colado Grande",     image: "/menu/GQ.webp" },
         {
             id: "c31",
             type: "food",
             name: "AAA carne seca y papas",
             image: "/menu/AAACARNE.webp" },
-        { id: "c32", type: "drink", name: "México East",             image: "/menu/amigos1.jpg" },
-        { id: "c33", type: "drink", name: "Paloma Fresa Grande",     image: "/menu/amigos1.jpg" },
+        { id: "c32", type: "drink", name: "México East",             image: "/menu/GQ.webp" },
+        { id: "c33", type: "drink", name: "Paloma Fresa Grande",     image: "/menu/GQ.webp" },
         {
             id: "c34",
             type: "food",
@@ -501,19 +501,19 @@ export const menuData = {
             image: "/menu/GQ.webp"
         },
         { id: "c35", type: "drink", name: "Coconut & Thai Chili Margarita", image: "/dmenu/margtree.webp" },
-        { id: "c36", type: "drink", name: "Queso flameado y longaniza",    image: "menu/QFY.webp" },
+        { id: "c36", type: "drink", name: "Queso flameado y longaniza",    image: "/menu/QFY.webp" },
 
         /*
         Re-add below if/when more drink images are available, to expand carousel size. Follow aboe format
         drink > food > drink (repeat, if successful, should create drink > drink effect in list
         (ie drink1 > food1 > drink2 - next page drink3 > food2 > drink4)
-        { id: "c44", type: "food",  name: "Papas bravas",            image: "menu/BRAVAS.webp" },
-        { id: "c45", type: "food",  name: "Esquite",                 image: "menu/ESQUITE.webg" },
-        { id: "c46", type: "food",  name: "Zanahorias al carbón",    image: "menu/ZANAHORIA.webp" },
-        { id: "c47", type: "food",  name: "Papatinas",               image: "menu/PAPATINAS.webp" },
-        { id: "c48", type: "food",  name: "Buñuelos de coco y maracuya", image: "menu/BUNUELOS.webp" },
-        { id: "c49", type: "food",  name: "Delicias de mango",       image: "menu/DEMANGO.webp" },
-        { id: "c50", type: "food",  name: "El favorito de papá",     image: "menu/DEPAPA.webp" },*/
+        { id: "c44", type: "food",  name: "Papas bravas",            image: "/menu/BRAVAS.webp" },
+        { id: "c45", type: "food",  name: "Esquite",                 image: "/menu/ESQUITE.webp" },
+        { id: "c46", type: "food",  name: "Zanahorias al carbón",    image: "/menu/ZANAHORIA.webp" },
+        { id: "c47", type: "food",  name: "Papatinas",               image: "/menu/PAPATINAS.webp" },
+        { id: "c48", type: "food",  name: "Buñuelos de coco y maracuya", image: "/menu/BUNUELOS.webp" },
+        { id: "c49", type: "food",  name: "Delicias de mango",       image: "/menu/DEMANGO.webp" },
+        { id: "c50", type: "food",  name: "El favorito de papá",     image: "/menu/DEPAPA.webp" },*/
         // …continue alternating as far as you want
     ]
 };
