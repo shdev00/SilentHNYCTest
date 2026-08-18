@@ -16,17 +16,22 @@ const jobs = [
         widths: [480, 768, 960],
     },
     {
-        // Home hero (Nader update): the mural + two-angel interior that used to sit in the
-        // Private Dining section is now the homepage hero. Source is 1280 wide → ladder caps there.
-        input: "private-dining-mural.png",
+        // Home hero — the mural + two-angel interior. Hi-res 3840×1692 source (shnyc-hero),
+        // replacing the pixelated 1280px one; full-bleed so the ladder goes up to 2560.
+        input: "shnyc-hero.png",
         output: "home-hero",
-        widths: [480, 640, 768, 960, 1280],
+        widths: [480, 640, 768, 960, 1280, 1600, 1920, 2560],
+        avifQuality: 72,
+        webpQuality: 88,
     },
     {
-        // Private Dining & Events — new dining render (angel statue + agave bar). 3840×2571 source.
-        input: "silenth-dining.png",
+        // Private Dining & Events — angel statue + agave bar. Hi-res 3840×2571 source
+        // (shnyc-privdin). Displays ≤1180 CSS (≈2360 @2x) → ladder to 1920.
+        input: "shnyc-privdin.png",
         output: "private-dining",
-        widths: [480, 768, 960, 1280, 1600],
+        widths: [480, 768, 960, 1280, 1600, 1920],
+        avifQuality: 72,
+        webpQuality: 88,
     },
     {
         // Figma "footer 1" — full-width "Let's get social" doorway image.
@@ -101,10 +106,13 @@ async function buildImage(job) {
             `${job.output}-${width}.webp`,
         );
 
+        // Per-job quality (defaults keep every existing job byte-identical). Large,
+        // detailed full-bleed images (hero / private dining) need a higher setting —
+        // at q55 AVIF they block up into artifacts that read as "pixelation".
         await basePipeline
             .clone()
             .avif({
-                quality: 55,
+                quality: job.avifQuality ?? 55,
                 effort: 6,
             })
             .toFile(avifOutput);
@@ -112,7 +120,7 @@ async function buildImage(job) {
         await basePipeline
             .clone()
             .webp({
-                quality: 78,
+                quality: job.webpQuality ?? 78,
                 effort: 6,
             })
             .toFile(webpOutput);
