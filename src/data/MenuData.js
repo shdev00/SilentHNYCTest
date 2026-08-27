@@ -405,7 +405,7 @@ export const menuData = {
                 { id: 92, name: "Santomé", description: "Prosecco Rose", price: 20, btl: 100},
                 { id: 93, name: "Collard Picard", description: "Sèlection", btl: 320 },
                 { id: 94, name: "Dom Pérignon", description: "Brut", btl: 970 },
-                { id: 95, name: "Armand de Brignacn", description: "(Ace of Spades)", btl: 1200 },
+                { id: 95, name: "Armand de Brignac", description: "(Ace of Spades)", btl: 1200 },
                 { id: 96, name: "Veuve Clicquot", description: "Ace of Spades", btl: 320 },
             ]
         },
