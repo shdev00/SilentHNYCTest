@@ -50,7 +50,7 @@ const SITE = "https://www.silenthnyc.com";
 //
 // Inlining the anon key adds NO exposure: it is public by design (Vite already
 // inlines it into the JS bundle every visitor downloads), it is committed in
-// this repo's .env, and it is read-only against blog_posts — INSERT/UPDATE/
+// this repo's .env, and it is read-only against nyc_blog_posts — INSERT/UPDATE/
 // DELETE are denied at the GRANT level, verified. Set SUPABASE_URL /
 // SUPABASE_ANON_KEY as Pages variables to override (e.g. after a key rotation).
 const FALLBACK_URL = "https://ggmrhgiclbuvluyanvhd.supabase.co";
@@ -85,8 +85,8 @@ async function fetchPost(env, slug) {
   }
 
   const endpoint =
-    `${url}/rest/v1/blog_posts` +
-    `?select=title,slug,author_name,published_at,updated_at,blog_post_content(title,image_url,body_text)` +
+    `${url}/rest/v1/nyc_blog_posts` +
+    `?select=title,slug,author_name,published_at,updated_at,nyc_blog_content(title,image_url,body_text)` +
     `&slug=eq.${encodeURIComponent(slug)}&status=eq.published`;
 
   let res;
@@ -108,7 +108,7 @@ async function fetchPost(env, slug) {
 
   const rows = await res.json();
   const row = Array.isArray(rows) ? rows[0] : null;
-  if (!row || !row.blog_post_content) return { status: "notfound" };
+  if (!row || !row.nyc_blog_content) return { status: "notfound" };
   return { status: "ok", post: row };
 }
 
@@ -127,7 +127,7 @@ function relatedHtml(slug) {
 }
 
 function articleHtml(post, paragraphs, heroUrl) {
-  const title = post.blog_post_content.title || post.title;
+  const title = post.nyc_blog_content.title || post.title;
 
   const blocks = paragraphs
     .map((text) => {
@@ -158,7 +158,7 @@ function articleHtml(post, paragraphs, heroUrl) {
 }
 
 function jsonLd(post, paragraphs, canonical, description, heroUrl) {
-  const title = post.blog_post_content.title || post.title;
+  const title = post.nyc_blog_content.title || post.title;
 
   const nodes = [
     {
@@ -236,12 +236,12 @@ export async function onRequestGet(context) {
 
   const post = result.post;
 
-  const paragraphs = splitBodyText(post.blog_post_content.body_text);
-  const title = ((t)=> (t && t.length <= 47) ? `${t} | Silent H` : (t || "Silent H Blog"))(post.title || post.blog_post_content.title);
+  const paragraphs = splitBodyText(post.nyc_blog_content.body_text);
+  const title = ((t)=> (t && t.length <= 47) ? `${t} | Silent H` : (t || "Silent H Blog"))(post.title || post.nyc_blog_content.title);
   const canonical = `${SITE}/blogs/${post.slug}`;
   const description = buildDescription(paragraphs);
   const heroUrl = resolveImageUrl(
-    post.blog_post_content.image_url,
+    post.nyc_blog_content.image_url,
     creds(env).url
   );
 
