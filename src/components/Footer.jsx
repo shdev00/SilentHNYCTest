@@ -150,17 +150,17 @@ export default function Footer() {
 
                     {/* Address */}
                     <p className="max-w-[220px] font-body font-bold uppercase text-sh-cream text-[12px] tracking-[0.18em] leading-[1.5] pt-[50px]">
-                        <a href="https://www.google.com/maps?q=416+W+13th+St,+New+York,+NY+10014" target="_blank" rel="noopener noreferrer" className="hover:text-sh-pink transition-colors">416 West 13th St</a>
+                        <a href="https://www.google.com/maps?q=420+W+13th+St,+New+York,+NY+10014" target="_blank" rel="noopener noreferrer" className="hover:text-sh-pink transition-colors">420 West 13th St</a>
                         {" | "}
-                        <a href="tel:+14169003535" className="hover:text-sh-pink transition-colors">416 900 3535</a>
+                        <a href="tel:+14062828155" className="hover:text-sh-pink transition-colors">406 282 8155</a>
                         {" | "}
-                        <a href="mailto:info@silenth.ca" className="hover:text-sh-pink transition-colors">info@silenth.ca</a>
+                        <a href="mailto:info@silenthnyc.com" className="hover:text-sh-pink transition-colors">info@silenthnyc.com</a>
                     </p>
 
                     {/* Maps link + embed */}
                     <div className="flex flex-col items-start gap-[16px] pt-[50px]">
                         <a
-                            href="https://www.google.com/maps?q=416+W+13th+St,+New+York,+NY+10014"
+                            href="https://www.google.com/maps?q=420+W+13th+St,+New+York,+NY+10014"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex flex-row items-center gap-[10px] hover:opacity-80 transition-opacity"
@@ -169,7 +169,7 @@ export default function Footer() {
                             <span className="font-body font-bold uppercase text-sh-cream text-[12px] tracking-[0.18em]">find us on google maps</span>
                         </a>
                         <a
-                            href="https://www.google.com/maps?q=416+W+13th+St,+New+York,+NY+10014"
+                            href="https://www.google.com/maps?q=420+W+13th+St,+New+York,+NY+10014"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Open Silent H on Google Maps"
@@ -177,7 +177,7 @@ export default function Footer() {
                         >
                             <iframe
                                 title="Silent H location"
-                                src="https://www.google.com/maps?q=416+W+13th+St,+New+York,+NY+10014&output=embed"
+                                src="https://www.google.com/maps?q=420+W+13th+St,+New+York,+NY+10014&output=embed"
                                 loading="lazy"
                                 className="pointer-events-none h-full w-full border-0"
                             />
@@ -246,22 +246,22 @@ export default function Footer() {
 
                 {/* Address (40 below) */}
                 <p className="mt-10 font-body uppercase text-sh-cream text-[16px] tracking-[0.2em] leading-[1.2]">
-                    416 West 13th St | 416 900 3535 | info@silenth.ca
+                    420 West 13th St | 406 282 8155 | info@silenthnyc.com
                 </p>
 
                 {/* Find us on google maps (40 below) */}
-                <a href="https://www.google.com/maps?q=416+W+13th+St,+New+York,+NY+10014" target="_blank" rel="noopener noreferrer" className="mt-10 flex items-center gap-3 hover:opacity-80 transition-opacity">
+                <a href="https://www.google.com/maps?q=420+W+13th+St,+New+York,+NY+10014" target="_blank" rel="noopener noreferrer" className="mt-10 flex items-center gap-3 hover:opacity-80 transition-opacity">
                     <img src="/redesign/fig-google-maps-logo-1-1.png" alt="" className="w-6 h-8 object-cover" />
                     <span className="font-body uppercase text-sh-cream text-[16px] tracking-[0.1em]">find us on google maps</span>
                 </a>
 
                 {/* Embedded map directly under the link. pointer-events-none so touch-scroll passes
                     straight through; the wrapping link opens Google Maps. */}
-                <a href="https://www.google.com/maps?q=416+W+13th+St,+New+York,+NY+10014" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.google.com/maps?q=420+W+13th+St,+New+York,+NY+10014" target="_blank" rel="noopener noreferrer"
                    aria-label="Open Silent H on Google Maps" className="mt-6 block w-[260px] h-[150px] overflow-hidden rounded-[4px]">
                     <iframe
                         title="Silent H location"
-                        src="https://www.google.com/maps?q=416+W+13th+St,+New+York,+NY+10014&output=embed"
+                        src="https://www.google.com/maps?q=420+W+13th+St,+New+York,+NY+10014&output=embed"
                         loading="lazy"
                         className="pointer-events-none h-full w-full border-0"
                     />
