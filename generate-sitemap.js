@@ -34,10 +34,8 @@ const routes = [
 // bundle. If the fetch fails the build does NOT die: we fall back to the known
 // slugs below, because shipping a slightly stale sitemap beats failing a deploy.
 const FALLBACK_BLOG_SLUGS = [
-  "date-night-restaurants-toronto",
-  "happy-hour-downtown-toronto",
-  "best-mexican-restaurant-toronto",
-  "private-dining-toronto",
+  "best-tacos-nyc",
+  "meatpacking-district-restaurants",
 ];
 
 async function fetchPublishedBlogSlugs() {
@@ -53,7 +51,7 @@ async function fetchPublishedBlogSlugs() {
 
   try {
     const endpoint =
-      `${url}/rest/v1/blog_posts` +
+      `${url}/rest/v1/nyc_blog_posts` +
       `?select=slug,updated_at&status=eq.published&order=sort_order.asc`;
 
     const response = await fetch(endpoint, {
