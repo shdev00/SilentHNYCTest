@@ -51,7 +51,7 @@ const dish = (item) => h3(item.name) + (item.description ? p(item.description) :
 // Wrap a route's inner HTML in a plain, semantic shell. The wrapper is purely so
 // the pre-JS paint has some padding; crawlers only care about the tags inside.
 const footerHtml = () =>
-  `<footer><p>Silent H is a modern Mexican restaurant and agave cocktail lounge at 416 West 13th Street, New York, NY 10014. Open Tuesday to Sunday from 5pm. Reservations 416 900 3535.</p></footer>`;
+  `<footer><p>Silent H is a modern Mexican restaurant and tequila bar at 420 West 13th Street, New York, NY 10014, opening soon in the Meatpacking District. Enquiries 406 282 8155 or info@silenthnyc.com.</p></footer>`;
 
 const shell = (inner) =>
   `<div style="max-width:960px;margin:0 auto;padding:96px 24px">${inner}${footerHtml()}</div>`;
@@ -81,7 +81,7 @@ function home() {
       ) +
       h2("A Modern Mexican Restaurant in NYC") +
       p(
-        "Silent H is a modern Mexican restaurant and agave cocktail lounge in NYC's Meatpacking District. Led by Chef Gerardo Álvarez Saucedo, the kitchen reimagines traditional Mexican family recipes with refined technique, from charred guacamole and crispy chicharrón tacos to mesquite-grilled rib-eye espadas and a 44oz tomahawk. Next door, our late-night lounge Aitch pours a world-class program of artisanal tequila and mezcal alongside elevated bites, with guest DJs Thursday through Sunday. Join us for happy hour every day from 5 to 7pm, settle in for a downtown NYC date night, or plan a private event across two Mexican-inspired spaces. Silent H is open for dinner Tuesday to Sunday from 5pm at 416 West 13th Street."
+        "Silent H is a modern Mexican restaurant and tequila bar opening soon in NYC's Meatpacking District. Led by Chef Gerardo Álvarez Saucedo, the kitchen reimagines traditional Mexican family recipes with refined technique, from charred guacamole and crispy chicharrón tacos to mesquite-grilled rib-eye espadas and a 44oz tomahawk. Next door, our late-night tequila bar Aitch will pour a world-class program of artisanal tequila and mezcal alongside elevated bites, with guest DJs Thursday through Sunday. Happy hour will run every day from 5 to 7pm, and the rooms are built for a downtown NYC date night or a private event across two Mexican-inspired spaces. Silent H will serve dinner at 420 West 13th Street."
       ) +
       `<blockquote>${p(
         "“I believe the best ingredient is nostalgia, which is reflected in every dish on this menu. It is a tribute to my family, to México and to my culture.”"
@@ -106,7 +106,7 @@ function menu() {
         "A celebration of authentic Mexican culinary heritage, reimagined for the modern palate. At Silent H, every dish is a story."
       ) +
       sections +
-    "<p>More reading: " + a("/blogs/best-mexican-restaurant-toronto", "the best Mexican restaurants in Toronto") + ".</p>" +
+    "<p>More reading: " + a("/blogs/best-tacos-nyc", "the best tacos in NYC") + ".</p>" +
       navHtml()
   );
 }
@@ -125,7 +125,7 @@ function happyHour() {
       happyHourItems.map(dish).join("") +
       h2(`${tuesdays.title} — ${tuesdays.schedule} ${tuesdays.price}`) +
       (tuesdays.items || []).map(dish).join("") +
-    "<p>More reading: " + a("/blogs/happy-hour-downtown-toronto", "the best happy hours in downtown Toronto") + ".</p>" +
+    "<p>More reading: " + a("/blogs/meatpacking-district-restaurants", "restaurants in the Meatpacking District") + ".</p>" +
       navHtml()
   );
 }
@@ -177,7 +177,7 @@ function story() {
       ) +
       h2("La inspiración") +
       STORY_ROWS.map((r) => h3(r.title) + p(r.body)).join("") +
-    "<p>More reading: " + a("/blogs/date-night-restaurants-toronto", "date-night restaurants in Toronto") + ".</p>" +
+    "<p>More reading: " + a("/blogs/meatpacking-district-restaurants", "restaurants in the Meatpacking District") + ".</p>" +
       navHtml()
   );
 }
@@ -196,7 +196,7 @@ const EVENTS_FAQ = [
   { q: "Can you host private events at Silent H?", a: "Yes. Silent H hosts private dining and events in NYC, from intimate dinners to corporate events and full buyouts across two Mexican-inspired spaces." },
   { q: "How many guests can Silent H host?", a: "The main dining room, patios and private spaces seat up to 145 guests, with room for up to 220 for a standing reception." },
   { q: "What kind of events does Silent H host?", a: "Corporate dinners, celebrations, milestone birthdays, engagement parties, product launches and full buyouts, each with chef-curated Mexican menus." },
-  { q: "Is there a private space for smaller groups?", a: "Yes. Aitch, our agave lounge downstairs, is available for smaller private bookings and after-parties behind a hidden door." },
+  { q: "Is there a private space for smaller groups?", a: "Yes. Aitch, our tequila bar next door, will be available for smaller private bookings and after-parties behind a hidden door." },
 ];
 function events() {
   return shell(
@@ -215,7 +215,6 @@ function events() {
       h2("Events & Private Dining FAQ") +
       EVENTS_FAQ.map((f) => h3(f.q) + p(f.a)).join("") +
     "<p>Ringing in the new year? See our " + a("/nye26", "New Year's Eve Masquerade Dinner") + " at Silent H, NYC.</p>" +
-    "<p>More reading: " + a("/blogs/private-dining-toronto", "private dining in Toronto") + ".</p>" +
       navHtml()
   );
 }
@@ -271,12 +270,12 @@ function nye26() {
 
 // pathname → builder. Only these routes get body injection; everything else
 // returns null and is left untouched by the middleware.
-// /aitch - Aitch agave lounge. Keep in sync with src/pages/Aitch.jsx (SEO + hero).
+// /aitch - Aitch tequila bar. Keep in sync with src/pages/Aitch.jsx (SEO + hero).
 function aitch() {
   return shell(
-    h1("Aitch - Agave Cocktail Lounge in NYC") +
+    h1("Aitch - Tequila Bar in NYC") +
     p(
-      "Aitch is Silent H's late-night agave lounge in NYC's Meatpacking District. Tucked downstairs behind a hidden door, the intimate room pours a world-class program of 50+ artisanal tequilas and mezcals alongside craft cocktails and elevated Mexican bites, Thursday to Sunday."
+      "Aitch is Silent H's late-night tequila bar in NYC's Meatpacking District. Tucked next door behind a hidden door, the intimate room will pour a world-class program of 50+ artisanal tequilas and mezcals alongside craft cocktails and elevated Mexican bites, Thursday to Sunday."
     ) +
     h2("The agave program") +
     p(
@@ -288,7 +287,7 @@ function aitch() {
     ) +
     h2("Visit Aitch") +
     p(
-      "Find Aitch inside Silent H at 416 West 13th Street, New York. Open late alongside the restaurant - reserve ahead at 647 822 5367 or drop in after dinner."
+      "Find Aitch next door to Silent H at 418 West 13th Street, New York. Opening late alongside the restaurant - enquiries 406 284 0019 or info@aitchnyc.com."
     ) +
     navHtml([
       ["/menu", "Menu"],

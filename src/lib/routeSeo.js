@@ -34,7 +34,7 @@ export const ROUTE_SEO = {
   "/": {
     title: "Silent H NYC | Modern Mexican Cuisine",
     description:
-      "Silent H is a modern Mexican restaurant and agave lounge in NYC's Meatpacking District. Chef-driven plates, $10 happy-hour margaritas, and late nights at Aitch.",
+      "Silent H is a modern Mexican restaurant and tequila bar in NYC's Meatpacking District. Chef-driven plates, $10 happy-hour margaritas, and late nights at Aitch.",
   },
   "/menu": {
     title: "Silent H NYC Menu | Modern Mexican Cuisine (Menu)",
@@ -49,7 +49,7 @@ export const ROUTE_SEO = {
   "/story": {
     title: "Our Story | Silent H, Modern Mexican Restaurant NYC",
     description:
-      "The story behind Silent H, a modern Mexican restaurant and agave lounge in NYC, led by Monterrey-born chef Gerardo Álvarez Saucedo.",
+      "The story behind Silent H, a modern Mexican restaurant and tequila bar in NYC, led by Monterrey-born chef Gerardo Álvarez Saucedo.",
   },
   "/happy-hour": {
     title: "Happy Hour in NYC | $10 Margaritas Daily | Silent H",
@@ -59,7 +59,7 @@ export const ROUTE_SEO = {
   "/faq": {
     title: "Silent H FAQ | Mexican Restaurant & Bar, NYC",
     description:
-      "Common questions about Silent H, modern Mexican restaurant and Aitch agave lounge in NYC: hours, reservations, happy hour, menu and parking.",
+      "Common questions about Silent H, modern Mexican restaurant and Aitch tequila bar in NYC: hours, reservations, happy hour, menu and parking.",
   },
   "/blogs": {
     title: "Silent H Blog | Mexican Food & Cocktails in NYC",
@@ -72,9 +72,9 @@ export const ROUTE_SEO = {
       "Ring in 2027 at Silent H, NYC: a New Year's Eve masquerade dinner on 12.31.26 with a modern Mexican prix-fixe. Reserve your table.",
   },
   "/aitch": {
-    title: "Aitch | Agave Cocktail Lounge in NYC",
+    title: "Aitch | Tequila Bar in NYC",
     description:
-      "Aitch is Silent H's late-night agave lounge in NYC - 50+ tequilas and mezcals, craft cocktails and elevated Mexican bites, Thursday to Sunday.",
+      "Aitch is Silent H's late-night tequila bar in NYC - 50+ tequilas and mezcals, craft cocktails and elevated Mexican bites, Thursday to Sunday.",
   },
 };
 
