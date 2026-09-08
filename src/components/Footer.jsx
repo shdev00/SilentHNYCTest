@@ -1,5 +1,4 @@
-import { FaTiktok, FaInstagram, FaYoutube} from "react-icons/fa";
-import { LuFacebook, LuYoutube} from "react-icons/lu";
+import { FaInstagram } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import MailingForm from "./MailingForm.jsx";
@@ -91,14 +90,8 @@ export default function Footer() {
                         Let&apos;s get social
                     </p>
                     <div className="mt-[22px] flex flex-row items-center gap-[30px] text-[28px]">
-                        <a href="https://www.tiktok.com/@silenth.to?lang=en" aria-label="TikTok"
-                           className="text-sh-cream hover:text-sh-pink transition-colors"><FaTiktok/></a>
-                        <a href="https://www.instagram.com/silenth.to/?hl=en" aria-label="Instagram"
+                        <a href="https://www.instagram.com/silenth.nyc/" aria-label="Instagram"
                            className="text-sh-cream hover:text-sh-pink transition-colors"><FaInstagram/></a>
-                        <a href="https://www.facebook.com/silenth.to/" aria-label="Facebook"
-                           className="text-sh-cream hover:text-sh-pink transition-colors"><LuFacebook/></a>
-                        <a href="https://www.youtube.com/@silenth.toronto" aria-label="Youtube"
-                           className="text-sh-cream hover:text-sh-pink transition-colors"><FaYoutube/></a>
                     </div>
                     <picture>
                         <source
@@ -220,14 +213,8 @@ export default function Footer() {
                     (explicit break); icons ordered TikTok / Instagram / Facebook per the .fig. */}
                 <p className="mt-5 font-display font-bold uppercase text-sh-cream text-[28px] leading-[1.2] tracking-[0.05em]">Let&apos;s get<br />social</p>
                 <div className="mt-5 flex justify-center gap-8 text-[24px] text-sh-cream">
-                    <a href="https://www.tiktok.com/@silenth.to?lang=en" aria-label="TikTok"
-                       className="hover:text-sh-pink transition-colors"><FaTiktok/></a>
-                    <a href="https://www.instagram.com/silenth.to/?hl=en" aria-label="Instagram"
+                    <a href="https://www.instagram.com/silenth.nyc/" aria-label="Instagram"
                        className="hover:text-sh-pink transition-colors"><FaInstagram/></a>
-                    <a href="https://www.facebook.com/silenth.to/" aria-label="Facebook"
-                       className="hover:text-sh-pink transition-colors"><LuFacebook/></a>
-                    <a href=" https://www.youtube.com/@silenth.toronto" aria-label="Youtube"
-                       className="hover:text-sh-pink transition-colors"><LuYoutube/></a>
                 </div>
 
                 {/* Frame 1653 — pink mailing button (60 below social) */}
