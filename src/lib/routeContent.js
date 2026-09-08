@@ -51,7 +51,7 @@ const dish = (item) => h3(item.name) + (item.description ? p(item.description) :
 // Wrap a route's inner HTML in a plain, semantic shell. The wrapper is purely so
 // the pre-JS paint has some padding; crawlers only care about the tags inside.
 const footerHtml = () =>
-  `<footer><p>Silent H is a modern Mexican restaurant and tequila bar at 420 West 13th Street, New York, NY 10014, opening soon in the Meatpacking District. Enquiries 406 282 8155.</p></footer>`;
+  `<footer><p>Silent H is a modern Mexican restaurant and tequila bar at 420 West 13th Street, New York, NY 10014, opening soon in the Meatpacking District. Enquiries 406 282 8155 or info@silenthnyc.com.</p></footer>`;
 
 const shell = (inner) =>
   `<div style="max-width:960px;margin:0 auto;padding:96px 24px">${inner}${footerHtml()}</div>`;
@@ -287,7 +287,7 @@ function aitch() {
     ) +
     h2("Visit Aitch") +
     p(
-      "Find Aitch next door to Silent H at 418 West 13th Street, New York. Opening late alongside the restaurant - enquiries 406 284 0019."
+      "Find Aitch next door to Silent H at 418 West 13th Street, New York. Opening late alongside the restaurant - enquiries 406 284 0019 or info@aitchnyc.com."
     ) +
     navHtml([
       ["/menu", "Menu"],
