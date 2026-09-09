@@ -49,7 +49,7 @@ const MENU_FAQ = [
   { q: "What kind of food does Silent H serve?", a: "Modern, regional Mexican built for sharing: ceviches, aguachiles, tacos, flautas, queso flameado and a 44 oz tomahawk, from Monterrey-born chef Gerardo Álvarez Saucedo." },
   { q: "Does Silent H have vegetarian and vegan options?", a: "Yes. Several plates are vegetable-forward and a number of tacos and dishes offer a vegan option; ask your server for the full list." },
   { q: "Does the menu have tacos?", a: "Yes, including the Taco de chicharrón and the Flauta carnita, alongside a full shareable Mexican menu." },
-  { q: "Does Silent H have a cocktail menu?", a: "Yes, a regional cocktail program upstairs, plus a deeper tequila and mezcal list downstairs at Aitch, our agave lounge." },
+  { q: "Does Silent H have a cocktail menu?", a: "Yes, a regional cocktail program in the restaurant, plus a deeper tequila and mezcal list next door at Aitch, our tequila bar." },
 ];
 
 const MENU_SCHEMA = {
