@@ -65,7 +65,7 @@ export function extractFaq(paragraphs) {
 export function buildDescription(paragraphs) {
   const first = String(paragraphs[0] || "").replace(/\s+/g, " ").trim();
   if (!first) {
-    return "Modern Mexican restaurant and agave bar in NYC's Meatpacking District.";
+    return "Modern Mexican restaurant and tequila bar in NYC's Meatpacking District.";
   }
   if (first.length <= 160) return first;
   const cut = first.slice(0, 157);
