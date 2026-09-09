@@ -15,7 +15,7 @@ export default function FAQ() {
     <>
       <SEO
         title='Silent H FAQ | Mexican Restaurant & Bar, NYC'
-        description='Common questions about Silent H, modern Mexican restaurant and Aitch agave lounge in NYC: hours, reservations, happy hour, menu and parking.'
+        description='Common questions about Silent H, modern Mexican restaurant and Aitch tequila bar in NYC: hours, reservations, happy hour, menu and parking.'
         url='https://www.silenthnyc.com/faq'
         jsonLd={faqSchema}
       />

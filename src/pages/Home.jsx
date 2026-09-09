@@ -64,7 +64,7 @@ export default function Home() {
       <>
         <SEO
             title="Silent H NYC | Modern Mexican Cuisine"
-            description="Silent H is a modern Mexican restaurant and agave lounge in NYC's Meatpacking District. Chef-driven plates, $10 happy-hour margaritas, and late nights at Aitch."
+            description="Silent H is a modern Mexican restaurant and tequila bar in NYC's Meatpacking District. Chef-driven plates, $10 happy-hour margaritas, and late nights at Aitch."
             url="https://www.silenthnyc.com/"
             preloads={[
               {
@@ -289,14 +289,7 @@ export default function Home() {
             <div className="mx-auto max-w-[920px] text-center">
               <h2 className="font-display font-bold uppercase text-[clamp(38px,4.2vw,56px)] leading-none tracking-[0.045em] text-sh-cream mb-7">A Modern Mexican Restaurant in
                 NYC</h2>
-              <p className="font-body text-sh-cream text-[clamp(20px,1.85vw,24px)] font-[500] leading-[1.45] tracking-[0.025em]">Silent H is a modern Mexican
-                restaurant and agave cocktail lounge in NYC's Meatpacking District. Led by Chef Gerardo Álvarez
-                Saucedo, the kitchen reimagines traditional Mexican family recipes with refined technique, from charred
-                guacamole and crispy chicharrón tacos to mesquite-grilled rib-eye espadas and a 44oz tomahawk. Next
-                door, our late-night lounge Aitch pours a world-class program of artisanal tequila and mezcal alongside
-                elevated bites, with guest DJs Thursday through Sunday. Join us for happy hour every day from 5 to 7pm,
-                settle in for a downtown NYC date night, or plan a private event across two Mexican-inspired spaces. Silent
-                H is open for dinner Tuesday to Sunday from 5pm at 416 West 13th Street.</p>
+              <p className="font-body text-sh-cream text-[clamp(20px,1.85vw,24px)] font-[500] leading-[1.45] tracking-[0.025em]">Silent H is a modern Mexican restaurant and tequila bar opening soon in NYC's Meatpacking District. Led by Chef Gerardo Álvarez Saucedo, the kitchen reimagines traditional Mexican family recipes with refined technique, from charred guacamole and crispy chicharrón tacos to mesquite-grilled rib-eye espadas and a 44oz tomahawk. Next door, our late-night tequila bar Aitch will pour a world-class program of artisanal tequila and mezcal alongside elevated bites, with guest DJs Thursday through Sunday. Happy hour will run every day from 5 to 7pm, and the rooms are built for a downtown NYC date night or a private event across two Mexican-inspired spaces. Silent H will serve dinner at 420 West 13th Street.</p>
             </div>
           </section>
 
@@ -371,7 +364,7 @@ export default function Home() {
                       src="/redesign/private-dining-1280.webp"
                       width="1180"
                       height="590"
-                      alt="Silent H's agave bar and dining room beneath a winged statue"
+                      alt="Silent H's tequila bar and dining room beneath a winged statue"
                       loading="lazy"
                       decoding="async"
                       className="block w-full h-[590px] object-cover object-center"

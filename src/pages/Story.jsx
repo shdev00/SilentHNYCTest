@@ -76,7 +76,7 @@ export default function Story() {
     <>
       <SEO
         title="Our Story | Silent H, Modern Mexican Restaurant NYC"
-        description="The story behind Silent H, a modern Mexican restaurant and agave lounge in NYC, led by Monterrey-born chef Gerardo Álvarez Saucedo."
+        description="The story behind Silent H, a modern Mexican restaurant and tequila bar in NYC, led by Monterrey-born chef Gerardo Álvarez Saucedo."
         url="https://www.silenthnyc.com/story"
         jsonLd={breadcrumb("Our Story", "https://www.silenthnyc.com/story")}
       />
