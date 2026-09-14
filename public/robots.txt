@@ -1,5 +1,45 @@
+# Silent H NYC - robots.txt
+#
+# AI policy: AI assistants and AI search engines may read, cite and link to
+# this site. Using it to train models is not permitted.
+#
+# Covered by the wildcard group below, so no separate rule is needed:
+#   Googlebot, Bingbot             - classic web search
+#   OAI-SearchBot, ChatGPT-User    - ChatGPT search and browsing
+#   Claude-SearchBot, Claude-User  - Claude search and browsing
+#   PerplexityBot, Perplexity-User - Perplexity
+#   Google-Extended                - Gemini grounding
+#   DuckAssistBot                  - DuckDuckGo AI answers
+
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
 Allow: /
 Disallow: /cdn-cgi/
+
+# AI model-training crawlers - not permitted.
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: CloudflareBrowserRenderingCrawler
+Disallow: /
 
 Sitemap: https://www.silenthnyc.com/sitemap.xml
