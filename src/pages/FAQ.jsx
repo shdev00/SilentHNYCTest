@@ -1,6 +1,7 @@
 import SEO from '../components/SEO.jsx';
 import { Link } from "react-router-dom";
 import { faqs } from "../data/faqData.js";
+import { openAitchModal } from "../lib/aitchModal";
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -40,7 +41,7 @@ export default function FAQ() {
           <div className="flex flex-wrap gap-x-6 gap-y-3 font-display uppercase text-sm">
             <Link to="/menu" className="hover:text-sh-gold">Menu</Link>
             <Link to="/happy-hour" className="hover:text-sh-gold">Happy Hour</Link>
-            <Link to="/aitch" className="hover:text-sh-gold">Aitch Cocktail Bar</Link>
+            <button type="button" onClick={openAitchModal} className="uppercase hover:text-sh-gold">Aitch Cocktail Bar</button>
             <Link to="/events" className="hover:text-sh-gold">Private Events</Link>
             <Link to="/story" className="hover:text-sh-gold">Our Story</Link>
           </div>

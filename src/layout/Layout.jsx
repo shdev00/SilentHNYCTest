@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ErrorBoundary from "../components/ErrorBoundary";
+import AitchUnderConstruction from "../components/AitchUnderConstruction";
 import EnterAitchTab from "../components/EnterAitchTab";
 import ScrollManager from "./ScrollManager";
 import SmoothScroll from "../lib/smoothScroll/SmoothScroll";
@@ -52,6 +53,8 @@ export default function Layout() {
           <Outlet />        {/* page changes here; Navbar/Footer do NOT remount */}
         </ErrorBoundary>
         <Footer />
+        {/* Intercepts /aitch links → "under construction" modal (NYC Aitch isn't built yet). */}
+        <AitchUnderConstruction />
       </SmoothScroll>
   );
 }

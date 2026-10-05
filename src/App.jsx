@@ -9,6 +9,7 @@ import Story from "./pages/Story";
 import HappyHour from "./pages/HappyHour";
 import FormTest from "./pages/FormTest";
 import ExternalRedirect from "./pages/ExternalRedirect";
+import AitchRoute from "./pages/AitchRoute";
 import NotFound from "./pages/NotFound";
 
 // Blog routes are lazy because they are the only thing that imports
@@ -85,7 +86,10 @@ export default function App() {
           the "*" NotFound (a false 404). This route intercepts those client-side
           navigations and hard-redirects to the real app via a full page load.
           The splat also covers /aitch/faq, /aitch/booking, etc. */}
-      <Route path="aitch/*" element={<ExternalRedirect to="/aitch/" />} />
+      {/* AitchRoute opens the "coming soon" modal and returns the visitor, instead of
+          the old ExternalRedirect to /aitch/ which full-reloaded into the SPA and
+          re-matched this route forever (infinite reload). */}
+      <Route path="aitch/*" element={<AitchRoute />} />
 
       {/* Out of scope: Fifa26 keeps its own standalone chrome (own Navbar/Footer),
           so it is routed OUTSIDE the dark Layout shell to avoid double chrome. */}

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import MailingForm from "./MailingForm.jsx";
 import { useOTWidget } from "../components/OTwidget.jsx";
+import { openAitchModal } from "../lib/aitchModal";
 import { T } from "../styles/figmaTokens";
 
 // Pink "Join our mailing" button with the Figma SecondaryButton press animation:
@@ -130,11 +131,17 @@ export default function Footer() {
                     <div className="flex flex-col items-start gap-[10px]">
                         <p className="font-body text-sh-cream text-[24px] leading-[1.2] mb-[6px]">Quick links</p>
                         <div className="flex flex-col items-start gap-[5px]">
-                            {QUICK_LINKS.map((l) => (
-                                <Link key={l.to} to={l.to} className="font-body font-bold uppercase text-sh-cream text-[12px] tracking-[0.18em] leading-[1.5] hover:text-sh-pink transition-colors">
-                                    {l.label}
-                                </Link>
-                            ))}
+                            {QUICK_LINKS.map((l) =>
+                                l.to.startsWith("/aitch") ? (
+                                    <button key={l.to} type="button" onClick={openAitchModal} className="text-left font-body font-bold uppercase text-sh-cream text-[12px] tracking-[0.18em] leading-[1.5] hover:text-sh-pink transition-colors">
+                                        {l.label}
+                                    </button>
+                                ) : (
+                                    <Link key={l.to} to={l.to} className="font-body font-bold uppercase text-sh-cream text-[12px] tracking-[0.18em] leading-[1.5] hover:text-sh-pink transition-colors">
+                                        {l.label}
+                                    </Link>
+                                )
+                            )}
                             <button onClick={openReservationWidget} className="font-body font-bold uppercase text-sh-cream text-[12px] tracking-[0.18em] leading-[1.5] hover:text-sh-pink transition-colors text-left">
                                 reserve a table
                             </button>
@@ -225,9 +232,13 @@ export default function Footer() {
                 {/* Quick links (40 below button) + 4 links at the .fig 20px pitch (20 below heading) */}
                 <p className="mt-10 font-display text-sh-cream text-[18px] tracking-[0.05em]">Quick links</p>
                 <div className="mt-5 flex flex-col items-center gap-3">
-                    {QUICK_LINKS.map((l) => (
-                        <Link key={l.to} to={l.to} className="font-body uppercase text-sh-cream text-[16px] leading-[0.5] tracking-[0.2em] hover:text-sh-pink transition-colors">{l.label}</Link>
-                    ))}
+                    {QUICK_LINKS.map((l) =>
+                        l.to.startsWith("/aitch") ? (
+                            <button key={l.to} type="button" onClick={openAitchModal} className="font-body uppercase text-sh-cream text-[16px] leading-[0.5] tracking-[0.2em] hover:text-sh-pink transition-colors">{l.label}</button>
+                        ) : (
+                            <Link key={l.to} to={l.to} className="font-body uppercase text-sh-cream text-[16px] leading-[0.5] tracking-[0.2em] hover:text-sh-pink transition-colors">{l.label}</Link>
+                        )
+                    )}
                     <button onClick={openReservationWidget} className="font-body uppercase text-sh-cream text-[16px] leading-[0.5] tracking-[0.2em] hover:text-sh-pink transition-colors">reserve a table</button>
                 </div>
 
