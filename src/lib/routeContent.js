@@ -29,7 +29,7 @@
 //   that copy on the page, mirror it here (marked "keep in sync").
 
 import { menuData } from "../data/MenuData.js";
-import { happyHourIntro, happyHourItems, tuesdays } from "../data/happyHourData.js";
+import { happyHourIntro, happyHourItems } from "../data/happyHourData.js";
 import { faqs } from "../data/faqData.js";
 
 const esc = (s) =>
@@ -123,9 +123,7 @@ function happyHour() {
       p(happyHourIntro.schedule) +
       (prices ? p(prices) : "") +
       happyHourItems.map(dish).join("") +
-      h2(`${tuesdays.title} — ${tuesdays.schedule} ${tuesdays.price}`) +
-      (tuesdays.items || []).map(dish).join("") +
-    "<p>More reading: " + a("/blogs/meatpacking-district-restaurants", "restaurants in the Meatpacking District") + ".</p>" +
+      "<p>More reading: " + a("/blogs/meatpacking-district-restaurants", "restaurants in the Meatpacking District") + ".</p>" +
       navHtml()
   );
 }

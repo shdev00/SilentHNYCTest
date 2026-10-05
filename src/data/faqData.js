@@ -13,7 +13,7 @@ export const faqs = [
   { q: "What food does Silent H serve?", a: "Modern Mexican by Chef Gerardo Álvarez Saucedo: charred guacamole, crispy chicharrón tacos, mesquite rib-eye espadas, a 44oz tomahawk and house desserts." },
   { q: "Is Silent H good for date night?", a: "Yes. Silent H is one of NYC's favourite date-night spots, with an intimate room, shareable plates and the Aitch tequila bar next door for a nightcap." },
   { q: "What is Aitch?", a: "Aitch is Silent H's late-night tequila bar in NYC, next door at 418 West 13th Street, pouring artisanal tequila and mezcal with elevated bites and guest DJs, Thursday to Sunday from 9pm. Aitch is 21 and over." },
-  { q: "When is happy hour?", a: "Happy hour will run every day from 5 to 7pm: $10 house margaritas and $4 Mexican bites. Tuesdays will also feature a $20 rib-eye cachetada all day." },
+  { q: "When is happy hour?", a: "Happy hour will run every day from 5 to 7pm: $10 house margaritas and $4 Mexican bites." },
   { q: "Are there vegetarian or vegan options?", a: "Yes, several dishes are vegetarian or can be made vegan. Let your server know and the kitchen will guide you." },
   { q: "Can I host a private event?", a: "Yes. Silent H offers private dining, corporate dinners and full buyouts across two Mexican-inspired spaces with chef-curated menus. Call 406 282 8155 or use Plan an Event to enquire." },
   { q: "How do I get there and where do I park?", a: "Silent H is on West 13th Street in the Meatpacking District, near the 14th Street subway stations (A, C, E and L lines), with paid parking garages nearby." }

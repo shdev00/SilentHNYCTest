@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "silenthnyc-dev",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-lc", "exec npm run dev -- --port 5176 --strictPort"],
+      "port": 5176
+    }
+  ]
+}

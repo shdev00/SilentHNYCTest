@@ -200,8 +200,8 @@ const PAGE_JOBS = {
             webpQuality: 76,
         },
         {
-            name: "jj",
-            input: "public/jj.webp",
+            name: "cenotes",
+            input: "public/cenotes.webp",
             widths: [240, 480, 768, 1080, 1600],
             avifQuality: 55,
             webpQuality: 76,
@@ -396,6 +396,41 @@ const PAGE_JOBS = {
             webpQuality: 76,
         },
         {
+            name: "Ceviche",
+            input: "public/menu/Ceviche.webp",
+            widths: [240, 480, 768, 1080, 1600],
+            avifQuality: 55,
+            webpQuality: 76,
+        },
+        {
+            name: "Infladitas",
+            input: "public/menu/Infladitas.webp",
+            widths: [240, 480, 768, 1080, 1600],
+            avifQuality: 55,
+            webpQuality: 76,
+        },
+        {
+            name: "Marquesitas",
+            input: "public/menu/Marquesitas.webp",
+            widths: [240, 480, 768, 1080, 1600],
+            avifQuality: 55,
+            webpQuality: 76,
+        },
+        {
+            name: "TacosPastor",
+            input: "public/menu/TacosPastor.webp",
+            widths: [240, 480, 768, 1080, 1600],
+            avifQuality: 55,
+            webpQuality: 76,
+        },
+        {
+            name: "Barbacoa",
+            input: "public/menu/Barbacoa.webp",
+            widths: [240, 480, 768, 1080, 1600],
+            avifQuality: 55,
+            webpQuality: 76,
+        },
+        {
             name: "oaxaca",
             input: "public/oaxaca.webp",
             widths: [240, 480, 768, 1080, 1600],
@@ -436,24 +471,36 @@ const PAGE_JOBS = {
         },
     ],
 
-    // Our Story page (src/pages/Story.jsx). Four content images from the
-    // colleague's Our-Story iterations, all rendered via <ResponsiveImg>.
-    // The inspiración photo is the large arch — desktop ~73.9vw (≈946px at the
-    // 1280 --dw cap), so it needs tiers up to 1600 (≈946 @2x); its 1600px webp
-    // master downsizes cleanly. The three alternating-row photos render in a
-    // ~36.2vw arch (≈463px desktop) / full-width 480px-tall box on mobile, so a
-    // ladder topping out at 1080 (≈500 @2x) is plenty; masters are 1200px webp.
-    story: [
+    // Home page (src/pages/Home.jsx) — two oversized assets flagged by PageSpeed's
+    // "Improve image delivery" audit on desktop:
+    //   • monterrey-map-poster: the <video> poster for the De Monterrey arch. Was a
+    //     1.36 MB / 768×1344 JPG; it only shows briefly before the map video plays
+    //     and renders at ~365px, so a right-sized WebP (~60–90 KB) is plenty. The
+    //     poster attribute takes a single URL (no srcset) — Home.jsx points it at
+    //     the -720.webp variant. WebP (not AVIF) for the poster: universal support.
+    //   • fig-google-maps-logo: a 3840×2160 (4K!) / 223 KB PNG for a ~24–33px
+    //     decorative footer icon. A 256px WebP is a few KB. Footer.jsx uses -256.webp.
+    home: [
         {
-            // Full-bleed hero (LCP). Native source is only 1108px, so the ladder
-            // caps there — the win is the AVIF/WebP re-encode over the 93KB JPEG
-            // plus smaller mobile tiers, not any large-screen sharpness gain.
-            name: "story-hero",
-            input: "public/redesign/story-hero.jpg",
-            widths: [480, 640, 768, 960, 1108],
-            avifQuality: 55,
-            webpQuality: 78,
+            name: "monterrey-map-poster",
+            input: "public/redesign/monterrey-map-poster.jpg",
+            widths: [480, 720],
+            avifQuality: 50,
+            webpQuality: 66,
         },
+        {
+            name: "fig-google-maps-logo-1-1",
+            input: "public/redesign/fig-google-maps-logo-1-1.png",
+            widths: [128, 256],
+            avifQuality: 55,
+            webpQuality: 80,
+        },
+    ],
+
+    // Our Story content images — the NYC upscaled/edited iteration assets (grandmother,
+    // checkered table, dish + cocktail, and the Monterrey inspiración photo), rendered via
+    // <ResponsiveImg>. Hero stays on its own plain <img> (out of scope), so it's not here.
+    story: [
         {
             name: "story-inspiracion",
             input: "public/redesign/story-inspiracion.webp",

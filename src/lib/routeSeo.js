@@ -54,7 +54,7 @@ export const ROUTE_SEO = {
   "/happy-hour": {
     title: "Happy Hour in NYC | $10 Margaritas Daily | Silent H",
     description:
-      "Best happy hour in NYC: every day 5-7pm at Silent H. $10 house margaritas and $4 Mexican bites, plus Tuesdays all day $20 rib-eye cachetada.",
+        "Best happy hour in NYC: every day 5-7pm at Silent H. $10 house margaritas in four flavours and $4 Mexican bites.",
   },
   "/faq": {
     title: "Silent H FAQ | Mexican Restaurant & Bar, NYC",
