@@ -260,7 +260,7 @@ export default function BlogSection() {
             let data, error;
             try {
                 ({ data, error } = await supabase
-                    .from("blog_posts")
+                    .from("nyc_blog_posts")
                     .select(
                         "id,title,category,image_url,href,slug,author_name,date_label,published_at,created_at,sort_order,status"
                     )
