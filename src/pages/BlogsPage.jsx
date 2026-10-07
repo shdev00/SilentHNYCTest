@@ -148,7 +148,7 @@ export default function BlogsPage() {
             let data, error;
             try {
                 ({ data, error } = await supabase
-                    .from("blog_posts")
+                    .from("nyc_blog_posts")
                     .select(
                         "id,title,image_url,href,slug,published_at,created_at,sort_order,status"
                     )
