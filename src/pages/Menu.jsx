@@ -56,7 +56,7 @@ const MENU_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Menu",
   "name": "Silent H Dinner Menu",
-  "url": "https://www.silenth.ca/menu",
+  "url": "https://www.silenthnyc.com/menu",
   "inLanguage": "en",
   "hasMenuSection": (menuData.food || []).map((s) => ({
     "@type": "MenuSection",
@@ -399,8 +399,8 @@ export default function Menu() {
         <SEO
             title="Silent H Toronto Menu | Modern Mexican Cuisine (Menu)"
             description="The menu at Silent H, modern Mexican food and tacos on King West, Toronto: charred guacamole, crispy chicharron tacos, rib-eye skewers and agave cocktails."
-            url="https://www.silenth.ca/menu"
-            jsonLd={[breadcrumb("Menu", "https://www.silenth.ca/menu"), faqPage(MENU_FAQ.map((f) => ({ question: f.q, answer: f.a }))), MENU_SCHEMA]}
+            url="https://www.silenthnyc.com/menu"
+            jsonLd={[breadcrumb("Menu", "https://www.silenthnyc.com/menu"), faqPage(MENU_FAQ.map((f) => ({ question: f.q, answer: f.a }))), MENU_SCHEMA]}
         />
         {/* No dust on /menu (handled by Layout DUST_ROUTES). */}
         <main className="relative z-10 font-body bg-sh-black text-sh-cream min-h-screen">
