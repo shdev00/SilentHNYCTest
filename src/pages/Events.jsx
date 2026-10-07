@@ -282,7 +282,7 @@ export default function Events() {
         <RelatedGuides
           className="mt-[100px] md:mt-[7.5vw]"
           links={[
-            { to: "/blogs/private-dining-toronto", label: "Private dining in Toronto" },
+            { to: "/blogs/meatpacking-district-restaurants", label: "Restaurants in the Meatpacking District" },
             { to: "/nye26", label: "New Year's Eve at Silent H" },
           ]}
         />
