@@ -35,9 +35,9 @@ const M = {
 };
 
 const HH_FAQ = [
-  { q: "When is happy hour at Silent H?", a: "Every day from 5 to 7pm at Silent H on King West, Toronto, with $10 house margaritas and $4 Mexican bites." },
-  { q: "What is on the happy hour menu?", a: "Rotating house margaritas at $10 and Mexican bites at $4, alongside the full cocktail list." },
-  { q: "Does Silent H have happy hour on weekends?", a: "Yes. Happy hour runs every day, including weekends, from 5 to 7pm." },
+  { q: "When is happy hour at Silent H NYC?", a: "Happy hour starts once Silent H opens at 420 West 13th Street in the Meatpacking District. Days, times and prices will be posted here before opening." },
+  { q: "What will be on the happy hour menu?", a: "Margaritas and Mexican bites, alongside the full cocktail list. The final happy hour menu and prices will be confirmed before we open." },
+  { q: "Where is Silent H NYC?", a: "Silent H NYC is at 420 West 13th Street, New York, NY 10014, in the Meatpacking District." },
 ];
 
 export default function HappyHour() {
@@ -46,10 +46,10 @@ export default function HappyHour() {
   return (
       <>
         <SEO
-            title="Happy Hour on King West | $10 Margaritas Daily | Silent H"
-            description="Best happy hour in Toronto: every day 5-7pm at Silent H, King West. $10 house margaritas in four flavours and $4 Mexican bites."
-            url="https://www.silenth.ca/happy-hour"
-            jsonLd={[breadcrumb("Happy Hour", "https://www.silenth.ca/happy-hour"), faqPage(HH_FAQ.map((f) => ({ question: f.q, answer: f.a })))]}
+            title="Happy Hour in NYC | Coming Soon | Silent H"
+            description="Happy hour at Silent H NYC, 420 West 13th Street in the Meatpacking District, is coming soon. Margaritas and Mexican bites when we open."
+            url="https://www.silenthnyc.com/happy-hour"
+            jsonLd={[breadcrumb("Happy Hour", "https://www.silenthnyc.com/happy-hour"), faqPage(HH_FAQ.map((f) => ({ question: f.q, answer: f.a })))]}
         />
         <main className="relative z-10 font-body text-sh-cream">
 
@@ -147,7 +147,7 @@ export default function HappyHour() {
           <RelatedGuides
               className="mt-4 md:mt-0 pb-16 md:pb-[calc(var(--dw)*6.25/100)]"
               links={[
-                { to: "/blogs/happy-hour-downtown-toronto", label: "The best happy hours in downtown Toronto" },
+                { to: "/blogs/meatpacking-district-restaurants", label: "Restaurants in the Meatpacking District" },
               ]}
           />
 
