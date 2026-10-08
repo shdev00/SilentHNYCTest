@@ -63,7 +63,7 @@ async function publishedSlugs() {
     return [];
   }
   const res = await fetch(
-    `${url}/rest/v1/blog_posts?select=slug&status=eq.published&order=sort_order.asc`,
+    `${url}/rest/v1/nyc_blog_posts?select=slug&status=eq.published&order=sort_order.asc`,
     { headers: { apikey: key, Authorization: `Bearer ${key}` } }
   );
   if (!res.ok) return [];

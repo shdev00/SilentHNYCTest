@@ -34,7 +34,7 @@ function MenuIntro() {
   return (
       <section className="mx-auto w-full max-w-[321px] md:max-w-[calc(var(--dw)*73.75/100)] pt-10 md:pt-[calc(var(--dw)*15.5/100)]  text-center">
         <h1 className="font-display text-sh-cream text-[clamp(1.75rem,3vw,2.5rem)] tracking-[clamp(0.04em,0.3vw,0.055em)] leading-[1.05] font-bold">
-          Authentic Mexican Cuisine &amp; Elevated Cocktails in Toronto
+          Authentic Mexican Cuisine &amp; Elevated Cocktails in NYC
         </h1>
 
         <p className="mx-auto mt-4 max-w-[520px] font-body text-sh-cream/70 text-[clamp(0.85rem,1.1vw,1rem)] tracking-[0.08em] leading-[1.4] font-bold">
@@ -56,7 +56,7 @@ const MENU_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Menu",
   "name": "Silent H Dinner Menu",
-  "url": "https://www.silenth.ca/menu",
+  "url": "https://www.silenthnyc.com/menu",
   "inLanguage": "en",
   "hasMenuSection": (menuData.food || []).map((s) => ({
     "@type": "MenuSection",
@@ -397,10 +397,10 @@ export default function Menu() {
   return (
       <>
         <SEO
-            title="Silent H Toronto Menu | Modern Mexican Cuisine (Menu)"
-            description="The menu at Silent H, modern Mexican food and tacos on King West, Toronto: charred guacamole, crispy chicharron tacos, rib-eye skewers and agave cocktails."
-            url="https://www.silenth.ca/menu"
-            jsonLd={[breadcrumb("Menu", "https://www.silenth.ca/menu"), faqPage(MENU_FAQ.map((f) => ({ question: f.q, answer: f.a }))), MENU_SCHEMA]}
+            title="Silent H NYC Menu | Modern Mexican Cuisine (Menu)"
+            description="The menu at Silent H, modern Mexican food and tacos in NYC: charred guacamole, crispy chicharron tacos, rib-eye skewers and agave cocktails."
+            url="https://www.silenthnyc.com/menu"
+            jsonLd={[breadcrumb("Menu", "https://www.silenthnyc.com/menu"), faqPage(MENU_FAQ.map((f) => ({ question: f.q, answer: f.a }))), MENU_SCHEMA]}
         />
         {/* No dust on /menu (handled by Layout DUST_ROUTES). */}
         <main className="relative z-10 font-body bg-sh-black text-sh-cream min-h-screen">
@@ -469,8 +469,8 @@ export default function Menu() {
           <RelatedGuides
               className="mb-16 md:mb-[calc(var(--dw)*4/100)]"
               links={[
-                { to: "/blogs/best-restaurants-toronto", label: "The best restaurants in Toronto" },
-                { to: "/blogs/best-mexican-restaurant-toronto", label: "The best Mexican restaurants in Toronto" },
+                { to: "/blogs/best-tacos-nyc", label: "The best tacos in NYC" },
+                { to: "/blogs/meatpacking-district-restaurants", label: "Restaurants in the Meatpacking District" },
               ]}
           />
 

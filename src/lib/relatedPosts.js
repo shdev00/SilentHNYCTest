@@ -11,27 +11,17 @@
 // here updates both layers at once — no verbatim copy to keep in sync.
 
 export const RELATED = {
-  "date-night-restaurants-toronto": ["best-mexican-restaurant-toronto", "what-is-a-speakeasy", "mezcal-cocktails-to-try"],
-  "happy-hour-downtown-toronto": ["taco-tuesday-toronto", "the-ultimate-margarita-guide", "best-mexican-restaurant-toronto"],
-  "best-mexican-restaurant-toronto": ["date-night-restaurants-toronto", "taco-tuesday-toronto", "happy-hour-downtown-toronto"],
-  "private-dining-toronto": ["date-night-restaurants-toronto", "best-mexican-restaurant-toronto", "happy-hour-downtown-toronto"],
-  "mezcal-vs-tequila": ["mezcal-cocktails-to-try", "the-ultimate-margarita-guide", "what-is-a-speakeasy"],
-  "the-ultimate-margarita-guide": ["mezcal-vs-tequila", "mezcal-cocktails-to-try", "happy-hour-downtown-toronto"],
-  "what-is-a-speakeasy": ["mezcal-vs-tequila", "mezcal-cocktails-to-try", "date-night-restaurants-toronto"],
-  "taco-tuesday-toronto": ["happy-hour-downtown-toronto", "best-mexican-restaurant-toronto", "the-ultimate-margarita-guide"],
-  "mezcal-cocktails-to-try": ["mezcal-vs-tequila", "the-ultimate-margarita-guide", "what-is-a-speakeasy"],
+  "speakeasy-nyc": ["meatpacking-district-restaurants", "chelsea-market-restaurants", "best-tacos-nyc"],
+  "chelsea-market-restaurants": ["meatpacking-district-restaurants", "best-tacos-nyc", "speakeasy-nyc"],
+  "meatpacking-district-restaurants": ["chelsea-market-restaurants", "speakeasy-nyc", "best-tacos-nyc"],
+  "best-tacos-nyc": ["chelsea-market-restaurants", "meatpacking-district-restaurants", "speakeasy-nyc"],
 };
 
 export const TITLES = {
-  "date-night-restaurants-toronto": "Date Night Restaurants in Toronto",
-  "happy-hour-downtown-toronto": "Happy Hour in Downtown Toronto",
-  "best-mexican-restaurant-toronto": "Best Mexican Restaurant in Toronto",
-  "private-dining-toronto": "Private Dining in Toronto",
-  "mezcal-vs-tequila": "Mezcal vs Tequila",
-  "the-ultimate-margarita-guide": "The Ultimate Margarita Guide",
-  "what-is-a-speakeasy": "What Is a Speakeasy?",
-  "taco-tuesday-toronto": "Taco Tuesday in Toronto",
-  "mezcal-cocktails-to-try": "Mezcal Cocktails to Try",
+  "speakeasy-nyc": "Speakeasies in NYC",
+  "chelsea-market-restaurants": "Chelsea Market Restaurants",
+  "meatpacking-district-restaurants": "Meatpacking District Restaurants",
+  "best-tacos-nyc": "The Best Tacos in NYC",
 };
 
 /** Related posts for a slug as [{ slug, title }] — the shape both renderers want.

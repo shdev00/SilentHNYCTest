@@ -82,7 +82,7 @@ const EVENTS_FAQ = [
   { q: "Can you host private events at Silent H?", a: "Yes. Silent H hosts private dining and events in NYC, from intimate dinners to corporate events and full buyouts across two Mexican-inspired spaces." },
   { q: "How many guests can Silent H host?", a: "The main dining room, patios and private spaces seat up to 145 guests, with room for up to 220 for a standing reception." },
   { q: "What kind of events does Silent H host?", a: "Corporate dinners, celebrations, milestone birthdays, engagement parties, product launches and full buyouts, each with chef-curated Mexican menus." },
-  { q: "Is there a private space for smaller groups?", a: "Yes. Aitch, our agave lounge downstairs, is available for smaller private bookings and after-parties behind a hidden door." },
+  { q: "Is there a private space for smaller groups?", a: "Yes. Aitch, our tequila bar downstairs, is available for smaller private bookings and after-parties behind a hidden door." },
 ];
 
 export default function Events() {
@@ -282,7 +282,7 @@ export default function Events() {
         <RelatedGuides
           className="mt-[100px] md:mt-[7.5vw]"
           links={[
-            { to: "/blogs/private-dining-toronto", label: "Private dining in Toronto" },
+            { to: "/blogs/meatpacking-district-restaurants", label: "Restaurants in the Meatpacking District" },
             { to: "/nye26", label: "New Year's Eve at Silent H" },
           ]}
         />

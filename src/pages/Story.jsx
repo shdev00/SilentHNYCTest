@@ -255,7 +255,7 @@ export default function Story() {
         <RelatedGuides
           className="py-20 md:py-[calc(var(--dw)*10/100)]"
           links={[
-            { to: "/blogs/date-night-restaurants-toronto", label: "Date-night restaurants in Toronto" },
+            { to: "/blogs/meatpacking-district-restaurants", label: "Restaurants in the Meatpacking District" },
           ]}
         />
       </main>

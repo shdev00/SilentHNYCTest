@@ -52,9 +52,9 @@ export const ROUTE_SEO = {
       "The story behind Silent H, a modern Mexican restaurant and tequila bar in NYC, led by Monterrey-born chef Gerardo Álvarez Saucedo.",
   },
   "/happy-hour": {
-    title: "Happy Hour in NYC | $10 Margaritas Daily | Silent H",
+    title: "Happy Hour in NYC | Coming Soon | Silent H",
     description:
-        "Best happy hour in NYC: every day 5-7pm at Silent H. $10 house margaritas in four flavours and $4 Mexican bites.",
+        "Happy hour at Silent H NYC, 420 West 13th Street in the Meatpacking District, is coming soon. Margaritas and Mexican bites when we open.",
   },
   "/faq": {
     title: "Silent H FAQ | Mexican Restaurant & Bar, NYC",

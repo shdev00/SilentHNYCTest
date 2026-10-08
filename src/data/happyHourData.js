@@ -2,12 +2,9 @@
 // Schema (G-36): { id, name, description?, note? }
 
 export const happyHourIntro = {
-  title: "Best Happy Hour In Toronto",
-  schedule: "Daily, from 5pm to 7pm",
-  prices: [
-    { label: "Margaritas", price: "$10" },
-    { label: "Individual Bites", price: "$4" },
-  ],
+  title: "Happy Hour at Silent H NYC",
+  schedule: "Coming soon to 420 West 13th Street",
+  prices: [],
   heroImage: "/HH1-1.png",
 };
 

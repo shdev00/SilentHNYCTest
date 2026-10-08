@@ -25,8 +25,8 @@ const BLOG_IMAGE_BUCKET = "blog-images";
 // Curated links shown at the foot of every article for internal linking.
 const RELATED_LINKS = [
   { to: "/menu", label: "The menu" },
-  { to: "/happy-hour", label: "Happy hour, every day 5 to 7" },
-  { to: "/aitch", label: "Aitch, our agave lounge" },
+  { to: "/happy-hour", label: "Happy hour" },
+  { to: "/aitch", label: "Aitch, our tequila bar" },
   { to: "/events", label: "Private events and bookings" },
   { to: "/story", label: "Our story" },
   { to: "/reservations", label: "Book a table" },
@@ -112,7 +112,7 @@ export default function BlogContent() {
       }
 
       const { data, error } = await supabase
-        .from("blog_posts")
+        .from("nyc_blog_posts")
         .select(`
           id,
           title,
@@ -121,7 +121,7 @@ export default function BlogContent() {
           author_name,
           published_at,
           updated_at,
-          blog_post_content (
+          blog_post_content:nyc_blog_content (
             title,
             image_url,
             body_text
