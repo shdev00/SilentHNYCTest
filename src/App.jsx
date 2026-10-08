@@ -8,7 +8,7 @@ import Events from "./pages/Events";
 import Story from "./pages/Story";
 import HappyHour from "./pages/HappyHour";
 import FormTest from "./pages/FormTest";
-import ExternalRedirect from "./pages/ExternalRedirect";
+import Reservations from "./pages/Reservations";
 import AitchRoute from "./pages/AitchRoute";
 import NotFound from "./pages/NotFound";
 
@@ -41,7 +41,7 @@ export default function App() {
         <Route path="happy-hour" element={<HappyHour />} /> {/* NEW */}
         <Route
           path="reservations"
-          element={<ExternalRedirect to="https://www.opentable.ca/r/silent-h-toronto" />}
+          element={<Reservations />}
         />
         <Route path="form" element={<FormTest />} />
           <Route

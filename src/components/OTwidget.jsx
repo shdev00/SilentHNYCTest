@@ -5,12 +5,19 @@ import { trackReservationStarted } from "../lib/openaiPixel";
 // Context so we can trigger modal from anywhere
 const OTContext = createContext();
 
+// NYC isn't taking bookings yet. The OpenTable widget below (rid=1285960) is the
+// Silent H TORONTO listing, so every "Reserve" button on this site used to open
+// Toronto's booking form. While this is false, the same buttons open a
+// "Reservations coming soon" message instead, and no reservation is tracked.
+// When NYC bookings open: swap in the NYC OpenTable rid below, then set this to true.
+const RESERVATIONS_OPEN = false;
+
 export function OTProvider({ children }) {
     const [showWidget, setShowWidget] = useState(false);
 
     const openReservationWidget = () => {
         try {
-            trackReservationStarted();
+            if (RESERVATIONS_OPEN) trackReservationStarted();
         } catch (error) {
             console.warn("[OpenAI Pixel] Reservation tracking failed:", error);
         }
@@ -22,7 +29,7 @@ export function OTProvider({ children }) {
 
 
     useEffect(() => {
-        if (showWidget) {
+        if (showWidget && RESERVATIONS_OPEN) {
             const script = document.createElement("script");
             script.type = "text/javascript";
             script.src =
@@ -50,7 +57,7 @@ export function OTProvider({ children }) {
                         iframe (themed primary_color=F4F1EC), which can't be restyled from CSS.
                         A dark frame around a light widget reads worse (G-12). */}
                     <div
-                        className="relative bg-[#F9F6F1] rounded-xl shadow-2xl p-6 w-[60%] md:w-[20%] lg:w-[30%] xl:w-[18%] max-h-[90vh] flex flex-col"
+                        className={`relative bg-[#F9F6F1] rounded-xl shadow-2xl p-6 max-h-[90vh] flex flex-col ${RESERVATIONS_OPEN ? "w-[60%] md:w-[20%] lg:w-[30%] xl:w-[18%]" : "w-[85%] max-w-[420px]"}`}
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Close button */}
@@ -63,7 +70,19 @@ export function OTProvider({ children }) {
 
                         {/* Scroll-safe container */}
                         <div className="overflow-y-auto pt-6">
-                            <div id="opentable-widget" className="w-full flex justify-center"></div>
+                            {RESERVATIONS_OPEN ? (
+                              <div id="opentable-widget" className="w-full flex justify-center"></div>
+                            ) : (
+                              <div className="text-center text-black pb-2">
+                                <p className="font-body font-bold uppercase tracking-[0.13em] text-[15px]">
+                                  Reservations coming soon
+                                </p>
+                                <p className="mt-3 text-[15px] leading-relaxed">
+                                  Silent H NYC is opening soon at 420 West 13th Street in the
+                                  Meatpacking District. Reservations are not open yet.
+                                </p>
+                              </div>
+                            )}
                         </div>
                     </div>
                 </div>
