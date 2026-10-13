@@ -65,7 +65,7 @@ export function extractFaq(paragraphs) {
 export function buildDescription(paragraphs) {
   const first = String(paragraphs[0] || "").replace(/\s+/g, " ").trim();
   if (!first) {
-    return "Modern Mexican restaurant and tequila bar in NYC's Meatpacking District.";
+    return "Modern Mexican restaurant and agave bar in NYC's Meatpacking District.";
   }
   if (first.length <= 160) return first;
   const cut = first.slice(0, 157);
@@ -76,7 +76,6 @@ export function buildDescription(paragraphs) {
 /** Inline auto-links: first occurrence of each phrase becomes a link. */
 export const INTERNAL_LINKS = [
   { re: /Aitch/, to: "/aitch" },
-  { re: /happy hour/i, to: "/happy-hour" },
   { re: /events team|events calendar|events/i, to: "/events" },
   { re: /book a table|reservations?|reserve a table/i, to: "/reservations" },
   { re: /dinner menu|food menu|full menu|our menu|the menu/i, to: "/menu" },

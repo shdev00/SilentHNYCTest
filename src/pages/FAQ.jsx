@@ -1,7 +1,6 @@
 import SEO from '../components/SEO.jsx';
 import { Link } from "react-router-dom";
 import { faqs } from "../data/faqData.js";
-import { openAitchModal } from "../lib/aitchModal";
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -16,7 +15,7 @@ export default function FAQ() {
     <>
       <SEO
         title='Silent H FAQ | Mexican Restaurant & Bar, NYC'
-        description='Common questions about Silent H, modern Mexican restaurant and Aitch tequila bar in NYC: hours, reservations, happy hour, menu and parking.'
+        description='Common questions about Silent H, modern Mexican restaurant and Aitch agave lounge in NYC: hours, reservations, menu and parking.'
         url='https://www.silenthnyc.com/faq'
         jsonLd={faqSchema}
       />
@@ -40,8 +39,7 @@ export default function FAQ() {
           <p className="uppercase tracking-[0.25em] text-xs text-sh-gold mb-4">Explore Silent H</p>
           <div className="flex flex-wrap gap-x-6 gap-y-3 font-display uppercase text-sm">
             <Link to="/menu" className="hover:text-sh-gold">Menu</Link>
-            <Link to="/happy-hour" className="hover:text-sh-gold">Happy Hour</Link>
-            <button type="button" onClick={openAitchModal} className="uppercase hover:text-sh-gold">Aitch Cocktail Bar</button>
+            <Link to="/aitch" className="hover:text-sh-gold">Aitch Cocktail Bar</Link>
             <Link to="/events" className="hover:text-sh-gold">Private Events</Link>
             <Link to="/story" className="hover:text-sh-gold">Our Story</Link>
           </div>
