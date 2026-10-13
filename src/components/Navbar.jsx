@@ -4,7 +4,7 @@ import { Menu as MenuIcon, X } from "lucide-react";
 import { FaInstagram, FaTiktok } from "react-icons/fa";
 import { LuFacebook } from "react-icons/lu";
 
-// Shared navigation: Menu, centred Silent H logo and Plan an Event.
+// Shared navigation: Menu, Blogs, Silent H logo, Aitch and Plan an Event.
 // Mobile uses a glass bar with a hamburger menu and the same destinations.
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -26,15 +26,16 @@ export default function Navbar() {
     // Mobile menu-overlay links.
     const MOBILE_LINKS = [
         { to: "/menu", label: "Menu" },
+        { to: "/blogs", label: "Blogs" },
+        { to: "/aitch/", label: "Aitch" },
         { to: "/events", label: "Plan an Event" },
-        { to: "/aitch", label: "Aitch" },
-        { to: "/blog", label: "Blog" },
     ];
 
     // Desktop pill link. Active page = pink (colour only, no sparkles → grid metrics stay exact).
     const NavItem = ({ to, children }) => (
         <NavLink
             to={to}
+            reloadDocument={to === "/aitch/"}
             className={({ isActive }) =>
                 `${linkBase} ${isActive ? "text-sh-pink" : "text-sh-cream hover:text-sh-pink"}`
             }
@@ -51,8 +52,8 @@ export default function Navbar() {
 
     return (
         <header className="fixed top-0 inset-x-0 z-50 flex justify-center pointer-events-none">
-            {/* Desktop centered pill — 's .main-nav: fixed 460×74 (shrinks to
-                100vw-24 below ~644px), top 42px, 3-col grid, radius 999, bg black/40 +
+            {/* Desktop centered pill — 's .main-nav: fixed 680×74 (shrinks to
+                100vw-24 below ~644px), top 42px, 5-col grid, radius 999, bg black/40 +
                 blur 10, two-layer shadow. */}
             <nav
                 aria-label="Primary navigation"
@@ -69,8 +70,7 @@ export default function Navbar() {
                 >
                     <img src="/redesign/nav-logo.svg" alt="Silent H" className="w-[38px] h-[56px] object-contain" loading="eager" decoding="async" />
                 </NavLink>
-                <NavItem to="/aitch">Aitch</NavItem>
-
+                <NavItem to="/aitch/">Aitch</NavItem>
                 <NavItem to="/events">Plan an Event</NavItem>
             </nav>
 
@@ -90,7 +90,7 @@ export default function Navbar() {
             {/* Mobile menu overlay — Figma "Mobile - Menu" (6070:1124, 393×853). Full #0b0b0b
                 screen ABOVE the glass bar (z-60 so the blur strip can't show the page through).
                 Positions match the design's vertical rhythm (logo 11.7% top · links 35.5% ·
-                contact us ~89%): logo top-centre, close-X top-right, 2 links split by RED rules,
+                contact us ~89%): logo top-centre, close-X top-right, 4 links split by RED rules,
                 social icons + "contact us" near the bottom. */}
             {isOpen && (
                 <div className="pointer-events-auto md:hidden fixed inset-0 z-[60] h-[100dvh] bg-sh-ink flex flex-col items-center">
@@ -107,13 +107,13 @@ export default function Navbar() {
 
                     {/* Nav links — NeueBit 16 UPPER, 228 wide, divided by 1px RED rules; 88px pitch
                         (link 32 + 28 gap + rule + 28 gap). Design links block starts ~35.5% down. */}
-                    <nav className="mt-[13vh] w-[228px] flex flex-col">
+                    <nav className="mt-[6vh] w-[228px] flex flex-col">
                         {MOBILE_LINKS.map((l, i) => (
                             <div key={l.label} className="contents">
                                 {/* DOTTED red rule (Figma dashPattern [1,8], round caps): 1px dots ~9px apart */}
                                 {i > 0 && (
                                     <span
-                                        className="my-7 h-px w-full"
+                                        className="my-4 h-px w-full"
                                         style={{
                                             backgroundImage: "radial-gradient(circle, #eb4660 1.15px, transparent 1.5px)",
                                             backgroundSize: "9px 100%",
@@ -123,6 +123,7 @@ export default function Navbar() {
                                 )}
                                 <NavLink
                                     to={l.to}
+                                    reloadDocument={l.to === "/aitch/"}
                                     onClick={() => setIsOpen(false)}
                                     className={({ isActive }) =>
                                         `h-8 flex items-center justify-center font-body uppercase text-[16px] tracking-[0.1em] transition-colors ${isActive ? "text-sh-pink" : "text-sh-cream hover:text-sh-pink"}`
