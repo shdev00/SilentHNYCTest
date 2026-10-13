@@ -74,7 +74,7 @@ const navHtml = (links = NAV_LINKS) =>
    Mexican Restaurant in NYC" SEO section, and the De Monterrey quote). */
 function home() {
   return shell(
-    h1("Mexican flavours, celebrated in NYC") +
+    h1("Modern Mexican flavours celebrated in NYC") +
       p(
         "Chef Gerardo brings Mexico's street flavours to NYC. Elevated, authentic and an homage to Monterrey."
       ) +

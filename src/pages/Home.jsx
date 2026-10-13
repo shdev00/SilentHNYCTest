@@ -1,3 +1,4 @@
+import heroImage from "../assets/silent-h-nyc-mural-full-resolution.png";
 import { homeIntro } from "../data/nycContent.js";
 import { Link } from "react-router-dom";
 import { lazy, Suspense } from "react";
@@ -69,31 +70,8 @@ export default function Home() {
             url="https://www.silenthnyc.com/"
             preloads={[
               {
-                href: "/redesign/home-hero-768.avif",
-                type: "image/avif",
-                media: "(max-width: 767px)",
-                imageSrcSet: [
-                  "/redesign/home-hero-480.avif 480w",
-                  "/redesign/home-hero-768.avif 768w",
-                  "/redesign/home-hero-960.avif 960w",
-                ].join(", "),
-                imageSizes: "100vw",
-                fetchPriority: "high",
-              },
-              {
-                href: "/redesign/home-hero-1280.avif",
-                type: "image/avif",
-                media: "(min-width: 768px)",
-                imageSrcSet: [
-                  "/redesign/home-hero-640.avif 640w",
-                  "/redesign/home-hero-768.avif 768w",
-                  "/redesign/home-hero-960.avif 960w",
-                  "/redesign/home-hero-1280.avif 1280w",
-                  "/redesign/home-hero-1600.avif 1600w",
-                  "/redesign/home-hero-1920.avif 1920w",
-                  "/redesign/home-hero-2560.avif 2560w",
-                ].join(", "),
-                imageSizes: "100vw",
+                href: heroImage,
+                type: "image/png",
                 fetchPriority: "high",
               },
             ]}
@@ -107,38 +85,9 @@ export default function Home() {
           <section className="relative w-full overflow-hidden">
             <div className="relative hidden md:block w-full h-[980px]">
               {/* Full-bleed hero — the two-angel mural dining room; object-cover keeps it centred.
-                  Source is 1280 wide (the old Private Dining render), so the ladder caps at 1280. */}
-              <picture>
-                <source
-                    type="image/avif"
-                    srcSet={[
-                      "/redesign/home-hero-640.avif 640w",
-                      "/redesign/home-hero-768.avif 768w",
-                      "/redesign/home-hero-960.avif 960w",
-                      "/redesign/home-hero-1280.avif 1280w",
-                      "/redesign/home-hero-1600.avif 1600w",
-                      "/redesign/home-hero-1920.avif 1920w",
-                      "/redesign/home-hero-2560.avif 2560w",
-                    ].join(", ")}
-                    sizes="100vw"
-                />
-
-                <source
-                    type="image/webp"
-                    srcSet={[
-                      "/redesign/home-hero-640.webp 640w",
-                      "/redesign/home-hero-768.webp 768w",
-                      "/redesign/home-hero-960.webp 960w",
-                      "/redesign/home-hero-1280.webp 1280w",
-                      "/redesign/home-hero-1600.webp 1600w",
-                      "/redesign/home-hero-1920.webp 1920w",
-                      "/redesign/home-hero-2560.webp 2560w",
-                    ].join(", ")}
-                    sizes="100vw"
-                />
-
-                <img
-                    src="/redesign/home-hero-1920.webp"
+                  Use the original 3840 × 1692 PNG without lossy compression or downscaling. */}
+              <img
+                    src={heroImage}
                     alt="Silent H's dining room — a Mexican mural framed by winged statues"
                     loading="eager"
                     fetchPriority="high"
@@ -146,7 +95,6 @@ export default function Home() {
                     className="absolute inset-0 w-full h-full object-cover object-[50%_45%] select-none"
                     draggable="false"
                 />
-              </picture>
               {/* Single light overlay copied from the reference: keeps the glass bright (transparent
                 through the middle), only darkens the bottom ~20% for the copy + seals to black, with
                 a faint corner vignette. */}
@@ -162,9 +110,10 @@ export default function Home() {
                 sits at the reference's height; h1 Monoglyphic clamp(56,6vw,82) ls 0.08em, a
                 one-line NeueBit subtitle 20px ls 0.22em, then the dual CTAs. */}
               <div className="absolute inset-x-0 top-0 z-10 flex flex-col items-center px-[25px] pt-[530px] text-center">
-                <div className="flex flex-col items-center">
-                  <h1 className="font-display font-bold text-sh-cream text-[clamp(56px,6vw,82px)] leading-[0.98] tracking-[0.08em] [text-wrap:balance] max-w-[950px] [text-shadow:0_2px_8px_rgba(0,0,0,0.45),0_10px_32px_rgba(0,0,0,0.3)]">
-                    Mexican flavours,<br />celebrated in NYC
+                <div className="flex w-full min-w-0 flex-col items-center">
+                  <h1 className="font-display font-bold text-sh-cream text-[clamp(40px,5.7vw,72px)] leading-[0.98] tracking-[0.08em] w-full text-center [text-shadow:0_2px_8px_rgba(0,0,0,0.45),0_10px_32px_rgba(0,0,0,0.3)]">
+                    <span className="block whitespace-nowrap">Modern Mexican flavours</span>
+                    <span className="block">celebrated in NYC</span>
                   </h1>
                   <p className="mt-7 font-body font-bold text-sh-cream text-[20px] leading-none tracking-[0.22em] whitespace-nowrap [text-shadow:0_3px_18px_#000]">
                     Chef Gerardo brings Mexico&apos;s street flavours to NYC. Elevated, authentic and an homage to Monterrey.
@@ -201,29 +150,8 @@ export default function Home() {
                 >
                   {/* Image layer — fills the entire hero, including behind the copy and button */}
                   <div className="absolute inset-0 z-0">
-                    <picture>
-                      <source
-                          type="image/avif"
-                          srcSet={[
-                            "/redesign/home-hero-480.avif 480w",
-                            "/redesign/home-hero-768.avif 768w",
-                            "/redesign/home-hero-960.avif 960w",
-                          ].join(", ")}
-                          sizes="100vw"
-                      />
-
-                      <source
-                          type="image/webp"
-                          srcSet={[
-                            "/redesign/home-hero-480.webp 480w",
-                            "/redesign/home-hero-768.webp 768w",
-                            "/redesign/home-hero-960.webp 960w",
-                          ].join(", ")}
-                          sizes="100vw"
-                      />
-
-                      <img
-                          src="/redesign/home-hero-768.webp"
+                    <img
+                          src={heroImage}
                           alt="Silent H's dining room — a Mexican mural framed by winged statues"
                           loading="eager"
                           fetchPriority="high"
@@ -238,7 +166,6 @@ export default function Home() {
                                 object-center
                                      "
                                     />
-                                   </picture>
                   </div>
 
                   {/*
@@ -261,7 +188,7 @@ export default function Home() {
                   {/* Content */}
                   <Reveal className="relative z-20 mx-auto flex w-full max-w-[321px] flex-col items-start">
                     <h1 className="font-display text-[40px] font-bold uppercase leading-none tracking-[0.05em] text-sh-cream">
-                      Mexican flavours, celebrated in NYC
+                      Modern Mexican flavours celebrated in NYC
                     </h1>
 
                     <p className="mt-8 font-body text-[18px] font-bold leading-[1.6] tracking-[0.125em] text-sh-cream">
